@@ -8,13 +8,13 @@
 
 <head>
 <meta charset="UTF-8">
-<title>購入履歴画面</title>
+<title>アカウント設定画面</title>
 <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
 <script type="text/javascript" src="resources/js/ec.js"></script>
 </head>
 
 <body>
-	<h1 align="center">購入履歴画面</h1>
+	<h1 align="center">アカウント設定画面</h1>
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
@@ -73,25 +73,21 @@
 		<li><a href="/ec-site/login.html">ログアウト</a></li>
 	</ul>
 
-<div id="history">
-	<form action="/ec-site/history.html" method="post">
-		<input type="submit" value="Excel出力" />
-	</form>
-	<table border="1">
-		<tr>
-			<th><c:out value="商品名" /></th>
-			<th><c:out value="購入数" /></th>
-			<th><c:out value="単価" /></th>
-		</tr>
-	<c:forEach var="result" items="${resultList}">
-		<tr>
-			<td><c:out value="${result.itemName}" /></td>
-			<td><c:out value="${result.itemCount}" /></td>
-			<td><c:out value="${result.itemPrice}" /></td>
-		</tr>
-	</c:forEach>
-	</table>
-</div>
-
+	<div align="center">
+		<table border="1">
+			<tr>
+				<td><c:out value="顧客ID" /></td>
+				<td><c:out value="${customerId}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="パスワード" /></td>
+				<td><c:out value="${password}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="登録日時" /></td>
+				<td><c:out value="${regDate}" /></td>
+			</tr>
+		</table>
+	</div>
 </body>
 </html>
