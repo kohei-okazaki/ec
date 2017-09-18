@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import jp.co.site.util.DateUtil;
+import jp.co.common.util.DateUtil;
 import jp.co.site.web.session.EcSiteSessionKey;
 
 /**
