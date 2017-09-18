@@ -1,0 +1,14 @@
+package jp.co.site.form;
+
+import lombok.Data;
+
+@Data
+public class PurchaseForm {
+
+	private String itemName;
+
+	private Integer itemPrice;
+
+	private Integer itemCount;
+
+}
