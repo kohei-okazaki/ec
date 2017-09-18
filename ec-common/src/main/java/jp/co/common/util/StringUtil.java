@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+/**
+ * @author kou1210hei<br>
+ * 文字列のUtilクラス<br>
+ *
+ */
 public class StringUtil {
 
 	public static final String COMMA = ",";
@@ -22,7 +27,7 @@ public class StringUtil {
 	 */
 	public static List<String> toStrList(String target, String delim) {
 
-		if (target == null || "".equals(target)) {
+		if (target == null || TEMP.equals(target)) {
 			return null;
 		}
 		List<String> result = new ArrayList<String>();
@@ -31,7 +36,6 @@ public class StringUtil {
 		while (tokenizer.hasMoreTokens()) {
 			result.add(tokenizer.nextToken().trim());
 		}
-
 		return result;
 
 	}

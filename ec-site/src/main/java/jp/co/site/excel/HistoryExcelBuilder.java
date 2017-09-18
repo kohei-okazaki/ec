@@ -1,5 +1,4 @@
-package jp.co.site.other;
-
+package jp.co.site.excel;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
+import jp.co.common.excel.BaseExcelBuilder;
 import jp.co.common.other.Property;
 import jp.co.common.util.Charset;
 import jp.co.common.util.ExcelUtil;

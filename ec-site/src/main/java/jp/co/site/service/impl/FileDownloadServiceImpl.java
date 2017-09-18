@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.View;
 
 import jp.co.site.entity.PurchaseItemEntity;
-import jp.co.site.other.HistoryExcelBuilder;
+import jp.co.site.excel.HistoryExcelBuilder;
 import jp.co.site.service.FileDownloadService;
 
 /**
