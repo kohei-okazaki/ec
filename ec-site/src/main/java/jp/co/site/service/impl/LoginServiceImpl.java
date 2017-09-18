@@ -6,10 +6,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.co.common.util.StringUtil;
 import jp.co.site.form.LoginForm;
 import jp.co.site.service.AccountSearchService;
 import jp.co.site.service.LoginService;
+import jp.co.site.util.StringUtil;
 import jp.co.site.web.session.EcSiteSessionKey;
 
 /**

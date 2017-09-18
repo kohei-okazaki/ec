@@ -26,8 +26,6 @@
 		<hibernate.version>4.2.1.Final</hibernate.version>
 		<!-- Test -->
 		<junit.version>4.12</junit.version>
-		<!-- poi -->
-		<org.apache.poi-version>3.16</org.apache.poi-version>
 	</properties>
 
 	<dependencies>

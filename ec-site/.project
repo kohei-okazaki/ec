@@ -3,6 +3,7 @@
 	<name>ec-site</name>
 	<comment></comment>
 	<projects>
+		<project>ec-common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
