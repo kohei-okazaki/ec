@@ -1,4 +1,4 @@
-package jp.co.site.other;
+package jp.co.common.other;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

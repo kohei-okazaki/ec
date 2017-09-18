@@ -1,9 +1,14 @@
-package jp.co.site.util;
+package jp.co.common.util;
 
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * @author kou1210hei<br>
+ * DateのUtilクラス<br>
+ *
+ */
 public class DateUtil {
 
 	/**
