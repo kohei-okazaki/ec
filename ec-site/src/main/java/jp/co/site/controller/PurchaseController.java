@@ -11,6 +11,11 @@ import jp.co.site.service.PurchaseService;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
 
+/**
+ * @author kou1210hei<br>
+ * 購入画面コントローラ<br>
+ *
+ */
 @Controller
 public class PurchaseController {
 

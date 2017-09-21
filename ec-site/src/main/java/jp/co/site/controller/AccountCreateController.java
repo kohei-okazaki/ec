@@ -12,6 +12,11 @@ import jp.co.site.service.AccountCreateService;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
 
+/**
+ * @author kou1210hei<br>
+ * アカウント作成コントローラ<br>
+ *
+ */
 @Controller
 public class AccountCreateController {
 
