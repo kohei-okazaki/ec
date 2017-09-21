@@ -21,6 +21,7 @@ public class LoginController {
 
 	/**
 	 * ログイン画面<br>
+	 * ログイン画面描画時にセッション情報を削除<br>
 	 * @param model
 	 * @param request
 	 * @return

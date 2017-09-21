@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -20,6 +21,12 @@ import lombok.ToString;
 @ToString
 @Table(name = "PURCHASE_ITEM_INFO")
 public class PurchaseItemEntity implements Serializable {
+
+	@Id
+	@Setter
+	@Getter
+	@Column(name = "SEQ_ITEM_ID")
+	private String seqItemId;
 
 	@Setter
 	@Getter
