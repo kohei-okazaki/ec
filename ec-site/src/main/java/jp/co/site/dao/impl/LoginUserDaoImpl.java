@@ -19,7 +19,7 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	@Override
 	public LoginUserEntity createLoginUser(String password) {
 		LoginUserEntity entity = new LoginUserEntity();
-		entity.setCustomerId("master");
+		entity.setSeqCustomerId("master");
 		entity.setPassword(password);
 		entity.setRegDate(new Date());
 		return entity;
@@ -39,7 +39,7 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	public LoginUserEntity getLoginUserEntityByCustomerId(String customerId) {
 		// FIXME
 		LoginUserEntity entity = new LoginUserEntity();
-		entity.setCustomerId(customerId);
+		entity.setSeqCustomerId(customerId);
 		entity.setPassword("password");
 		return entity;
 	}

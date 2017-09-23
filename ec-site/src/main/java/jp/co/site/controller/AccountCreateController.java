@@ -67,7 +67,7 @@ public class AccountCreateController {
 	public String complete(Model model, AccountCreateForm form) {
 
 		LoginUserEntity loginUserEntity = accountCreateService.createLoginUser(form);
-		model.addAttribute("customerId", loginUserEntity.getCustomerId());
+		model.addAttribute("customerId", loginUserEntity.getSeqCustomerId());
 		model.addAttribute("password", loginUserEntity.getPassword());
 		model.addAttribute("page", PageView.COMPLETE.getName());
 

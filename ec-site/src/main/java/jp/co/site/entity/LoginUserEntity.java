@@ -26,7 +26,7 @@ public class LoginUserEntity implements Serializable {
 	@Setter
 	@Getter
 	@Column(name = "SEQ_CUSTOMER_ID")
-	private String customerId;
+	private String seqCustomerId;
 
 	@Setter
 	@Getter
