@@ -52,9 +52,9 @@ public class LoginServiceImpl implements LoginService {
 	public boolean sessionCheck(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String sessionCustomerId = (String) session.getAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
-		String accountPassword = accountsearchService.findLoginUser(sessionCustomerId).getPassword();
+		String dbPassword = accountsearchService.findLoginUser(sessionCustomerId).getPassword();
 		String sessionPassword = (String) session.getAttribute(EcSiteSessionKey.PASSWORD.getName());
-		return !accountPassword.equals(sessionPassword);
+		return !dbPassword.equals(sessionPassword);
 	}
 
 

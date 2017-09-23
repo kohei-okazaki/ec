@@ -1,4 +1,4 @@
-package jp.co.common.util;
+package jp.co.common.other;
 
 import lombok.AccessLevel;
 import lombok.Getter;
