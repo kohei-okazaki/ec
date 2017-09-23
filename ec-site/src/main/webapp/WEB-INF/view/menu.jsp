@@ -18,7 +18,7 @@
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
-			<td><c:out value="${sessionScope.customerId}" /></td>
+			<td><c:out value="${sessionScope.seqCustomerId}" /></td>
 		</tr>
 	</table>
 

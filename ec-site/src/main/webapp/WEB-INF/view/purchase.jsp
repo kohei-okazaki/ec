@@ -19,8 +19,8 @@
 <c:if test="${page == 2}"><h1 align="center">購入完了画面</h1></c:if>
 	<table border="1">
 		<tr>
-			<td><c:out value="顧客ID" /></td>
-			<td><c:out value="${sessionScope.customerId}" /></td>
+			<th><c:out value="顧客ID" /></th>
+			<td><c:out value="${sessionScope.seqCustomerId}" /></td>
 		</tr>
 	</table>
 

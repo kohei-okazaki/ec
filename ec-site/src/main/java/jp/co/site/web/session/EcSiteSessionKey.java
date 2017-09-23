@@ -11,7 +11,7 @@ import lombok.Setter;
  */
 public enum EcSiteSessionKey {
 
-	CUSTOMER_ID("customerId"),
+	SEQ_CUSTOMER_ID("seqCustomerId"),
 	PASSWORD("password");
 
 	@Setter(value = AccessLevel.PRIVATE)

@@ -37,13 +37,14 @@ public class AccountSettingController {
 
 		// セッションから顧客IDを取得
 		HttpSession session = request.getSession();
-		String customerId = (String) session.getAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
-		model.addAttribute("customerId", customerId);
+		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 
 		LoginUserEntity entity = accountSearchService.findLoginUser(customerId);
-		model.addAttribute("password", entity.getPassword());
+		model.addAttribute("loginUser", entity);
 
-		model.addAttribute("regDate", entity.getRegDate());
+
+
+
 
 		return View.ACCOUNTSETTING.getName();
 	}

@@ -18,7 +18,7 @@
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
-			<td><c:out value="${sessionScope.customerId}" /></td>
+			<td><c:out value="${sessionScope.seqCustomerId}" /></td>
 		</tr>
 	</table>
 
@@ -77,15 +77,15 @@
 		<table border="1">
 			<tr>
 				<td><c:out value="顧客ID" /></td>
-				<td><c:out value="${customerId}" /></td>
+				<td><c:out value="${loginUser.seqCustomerId}" /></td>
 			</tr>
 			<tr>
 				<td><c:out value="パスワード" /></td>
-				<td><c:out value="${password}" /></td>
+				<td><c:out value="${loginUser.password}" /></td>
 			</tr>
 			<tr>
 				<td><c:out value="登録日時" /></td>
-				<td><c:out value="${regDate}" /></td>
+				<td><c:out value="${loginUser.regDate}" /></td>
 			</tr>
 		</table>
 	</div>

@@ -51,7 +51,7 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public boolean sessionCheck(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String sessionCustomerId = (String) session.getAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
+		String sessionCustomerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 		String dbPassword = accountsearchService.findLoginUser(sessionCustomerId).getPassword();
 		String sessionPassword = (String) session.getAttribute(EcSiteSessionKey.PASSWORD.getName());
 		return !dbPassword.equals(sessionPassword);
