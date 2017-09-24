@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>アカウント作成画面</title>
+<link rel="icon" type="image/png" href="resources/images/favicon_logout.png">
 <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
 <script type="text/javascript" src="resources/js/ec.js"></script>
 </head>

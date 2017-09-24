@@ -14,5 +14,5 @@ public interface AccountSearchService {
 	 * @param customerId
 	 * @return
 	 */
-	public LoginUserEntity findLoginUser(String customerId);
+	public LoginUserEntity findLoginUserByCustomerId(String customerId);
 }

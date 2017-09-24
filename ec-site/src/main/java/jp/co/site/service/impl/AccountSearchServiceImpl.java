@@ -25,7 +25,7 @@ public class AccountSearchServiceImpl implements AccountSearchService {
 	 * @return
 	 */
 	@Override
-	public LoginUserEntity findLoginUser(String customerId) {
+	public LoginUserEntity findLoginUserByCustomerId(String customerId) {
 		return dao.getLoginUserEntityByCustomerId(customerId);
 	}
 

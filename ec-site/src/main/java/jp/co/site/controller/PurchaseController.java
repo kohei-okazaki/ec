@@ -1,5 +1,7 @@
 package jp.co.site.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,13 +25,17 @@ public class PurchaseController {
 	@Autowired
 	private PurchaseService purchaseService;
 
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
 	/**
 	 * 購入画面
 	 * @param model
-	 * @return
+	 * @return 購入画面
 	 */
 	@RequestMapping(value = "/purchase.html", method = RequestMethod.GET)
 	public String purchase(Model model) {
+
+		LOG.info(this.getClass().getSimpleName() + "#purchase");
 
 		model.addAttribute("page", PageView.INPUT.getName());
 
@@ -40,10 +46,12 @@ public class PurchaseController {
 	 * 購入確認画面
 	 * @param model
 	 * @param form
-	 * @return
+	 * @return 確認画面
 	 */
 	@RequestMapping(value = "/purchase-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, PurchaseForm form) {
+
+		LOG.info(this.getClass().getSimpleName() + "#confirm");
 
 		if (purchaseService.checkPurchaseItem(form)) {
 			// 購入商品情報が不正であった場合
@@ -64,11 +72,12 @@ public class PurchaseController {
 	 * 購入完了画面
 	 * @param model
 	 * @param form
-	 * @return
+	 * @return 完了画面
 	 */
 	@RequestMapping(value = "/purchase-complete.html", method = RequestMethod.POST)
 	public String complete(Model model, PurchaseForm form) {
 
+		LOG.info(this.getClass().getSimpleName() + "#complete");
 
 		model.addAttribute("itemName", form.getItemName());
 		model.addAttribute("itemCount", form.getItemCount());
