@@ -42,7 +42,7 @@ public class MenuController {
 		}
 
 		HttpSession session = request.getSession();
-		session.setAttribute(EcSiteSessionKey.CUSTOMER_ID.getName(), form.getCustomerId());
+		session.setAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName(), form.getCustomerId());
 		session.setAttribute(EcSiteSessionKey.PASSWORD.getName(), form.getPassword());
 
 		return View.MENU.getName();

@@ -36,7 +36,7 @@ public class HistoryReferenceController {
 	public String reference(Model model, HttpServletRequest request) {
 
 		// 顧客IDを取得
-		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
+		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 		List<PurchaseItemEntity> resultList = purchaseSearchService.getPurchaseEntityByCustomerId(customerId);
 
 		model.addAttribute("resultList", resultList);
@@ -48,7 +48,7 @@ public class HistoryReferenceController {
 	public ModelAndView excelDownload(Model model, HttpServletRequest request) {
 
 		// 顧客IDを取得
-		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
+		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 		List<PurchaseItemEntity> resultList = purchaseSearchService.getPurchaseEntityByCustomerId(customerId);
 
 		return new ModelAndView(downloadService.execute(resultList));

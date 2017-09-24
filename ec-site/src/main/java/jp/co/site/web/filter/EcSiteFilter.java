@@ -50,7 +50,7 @@ public class EcSiteFilter extends BaseFilter {
 		System.out.println(request.getRequestURI() + " : " + DateUtil.getSystemDate());
 
 		HttpSession session = request.getSession();
-		String customerId = (String) session.getAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
+		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 		System.out.println("customerId : " + customerId);
 		chain.doFilter(req, resp);
 	}

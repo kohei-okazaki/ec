@@ -14,7 +14,8 @@ public enum View {
 	ACCOUNT_CREATE("account-create"),
 	MENU("menu"),
 	PURCHASE("purchase"),
-	HISTORY("history");
+	HISTORY("history"),
+	ACCOUNTSETTING("account-setting");
 
 	@Setter(value = AccessLevel.PRIVATE)
 	@Getter

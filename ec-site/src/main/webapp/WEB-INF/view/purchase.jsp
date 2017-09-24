@@ -19,8 +19,8 @@
 <c:if test="${page == 2}"><h1 align="center">購入完了画面</h1></c:if>
 	<table border="1">
 		<tr>
-			<td><c:out value="顧客ID" /></td>
-			<td><c:out value="${sessionScope.customerId}" /></td>
+			<th><c:out value="顧客ID" /></th>
+			<td><c:out value="${sessionScope.seqCustomerId}" /></td>
 		</tr>
 	</table>
 
@@ -30,7 +30,7 @@
 				<li><a href="#">商品</a>
 					<ul>
 						<li><a href="/ec-site/purchase.html">商品購入</a></li>
-						<li><a href="#">購入履歴</a></li>
+						<li><a href="/ec-site/history.html">購入履歴</a></li>
 					</ul>
 				</li>
 				<li><a href="#">子メニュー2</a>
@@ -47,10 +47,10 @@
 						<li><a href="#">孫メニュー2</a></li>
 						<li><a href="#">孫メニュー3</a>
 							<ul>
-								<li><a href="#">ひ孫メニュー</a></li>
-								<li><a href="#">ひ孫メニュー</a></li>
-								<li><a href="#">ひ孫メニュー</a></li>
-								<li><a href="#">ひ孫メニュー</a></li>
+								<li><a href="#">ひ孫メニュー1</a></li>
+								<li><a href="#">ひ孫メニュー2</a></li>
+								<li><a href="#">ひ孫メニュー3</a></li>
+								<li><a href="#">ひ孫メニュー4</a></li>
 							</ul></li>
 						<li><a href="#">孫メニュー4</a></li>
 					</ul>
@@ -63,6 +63,7 @@
 						<li><a href="#">孫メニュー4</a></li>
 					</ul>
 				</li>
+				<li><a href="/ec-site/menu.html">TOP</a></li>
 			</ul>
 		</li>
 		<li><a href="#">設定</a>

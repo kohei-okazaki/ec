@@ -30,7 +30,7 @@ public class LoginController {
 	public String login(Model model, HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
-		session.removeAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
+		session.removeAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 		return View.LOGIN.getName();
 	}
 
