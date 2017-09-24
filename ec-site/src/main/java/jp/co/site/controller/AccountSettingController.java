@@ -11,8 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.site.dao.DeliveryInfoSearchService;
+import jp.co.site.entity.DeliveryInfoEntity;
 import jp.co.site.entity.LoginUserEntity;
 import jp.co.site.service.AccountSearchService;
+import jp.co.site.util.DateUtil;
+import jp.co.site.view.PageView;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
 
@@ -27,6 +31,9 @@ public class AccountSettingController {
 	/** ログインユーザ検索サービス */
 	@Autowired
 	private AccountSearchService accountSearchService;
+	/** 配送先情報検索サービス */
+	@Autowired
+	private DeliveryInfoSearchService deliveryInfoSearchService;
 
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
@@ -45,8 +52,42 @@ public class AccountSettingController {
 		HttpSession session = request.getSession();
 		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 
-		LoginUserEntity entity = accountSearchService.findLoginUserByCustomerId(customerId);
-		model.addAttribute("loginUser", entity);
+		// ログインユーザ情報を取得
+		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(customerId);
+		model.addAttribute("loginUser", loginUserentity);
+
+		// 配送先情報を取得
+		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(customerId);
+		model.addAttribute("deliveryInfo", deliveryInfoEntity);
+
+		model.addAttribute("regDate", DateUtil.getFormattedDate(deliveryInfoEntity.getRegDate()));
+
+		model.addAttribute("page", PageView.DETAIL.getName());
+
+		return View.ACCOUNTSETTING.getName();
+	}
+
+	/**
+	 * アカウント設定入力画面<br>
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = "account-setting.html", method = RequestMethod.GET)
+	public String input(Model model, HttpServletRequest request) {
+
+		LOG.info(this.getClass().getSimpleName() + "#accountSettingInput");
+
+		// セッションから顧客IDを取得
+		HttpSession session = request.getSession();
+		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+
+		// ログインユーザ情報を取得
+		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(customerId);
+
+		// 配送先情報を取得
+		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(customerId);
+
 
 		return View.ACCOUNTSETTING.getName();
 	}

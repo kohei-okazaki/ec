@@ -43,7 +43,7 @@ public class StringUtil {
 	/**
 	 * 空文字かどうか判定する
 	 * @param target
-	 * @return
+	 * @return 判定結果
 	 */
 	public static boolean isEmpty(String target) {
 		return target == null || TEMP.equals(target.trim());
@@ -54,7 +54,7 @@ public class StringUtil {
 	 * 等しい場合true, そうでなければfalse<br>
 	 * @param target1
 	 * @param target2
-	 * @return
+	 * @return 判定結果
 	 */
 	public static boolean isEquals(String target1, String target2) {
 		return target1.equals(target2);

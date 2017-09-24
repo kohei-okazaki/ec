@@ -14,12 +14,22 @@ public class DateUtil {
 	/**
 	 * 取得したlocaleの時間から書式を整えた時間を返却
 	 * @param locale
-	 * @return
+	 * @return 成形させた日付
 	 */
 	public static String getFormattedTime(Locale locale) {
 
 		DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		return format.format(new Date()).replaceAll(" JST", StringUtil.TEMP).trim();
+	}
+
+	/**
+	 * 指定されたDateの書式を整えた日付を返す<br>
+	 * @param date
+	 * @return
+	 */
+	public static String getFormattedDate(Date date) {
+		DateFormat format = DateFormat.getTimeInstance();
+		return format.format(date);
 	}
 
 	public static String getSystemDate() {
@@ -35,7 +45,7 @@ public class DateUtil {
 	 * を返す.<br>
 	 * @param date1
 	 * @param date2
-	 * @return
+	 * @return 判定結果
 	 */
 	public static String getSubDate(Date date1, Date date2) {
 		return String.valueOf(date1.compareTo(date2));
