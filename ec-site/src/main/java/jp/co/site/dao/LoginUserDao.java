@@ -14,7 +14,7 @@ public interface LoginUserDao {
 	/**
 	 * 指定されたパスワードからログインユーザ作成する<br>
 	 * @param password
-	 * @return
+	 * @return ログインユーザ情報
 	 */
 	public LoginUserEntity createLoginUser(String password);
 
@@ -26,15 +26,15 @@ public interface LoginUserDao {
 
 	/**
 	 * ログインユーザを全部検索する<br>
-	 * @return
+	 * @return ログインユーザ情報
 	 */
 	public List<LoginUserEntity> getAllDate();
 
 	/**
 	 * 顧客IDからログインユーザを検索する<br>
 	 * @param customerId
-	 * @return
+	 * @return ログインユーザ情報
 	 */
-	public LoginUserEntity getLoginUserEntityByCustomerId(String customerId);
+	public LoginUserEntity getLoginUserByCustomerId(String customerId);
 
 }

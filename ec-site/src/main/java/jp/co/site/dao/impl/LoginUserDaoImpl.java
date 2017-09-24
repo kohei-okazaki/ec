@@ -18,9 +18,9 @@ import jp.co.site.entity.LoginUserEntity;
 public class LoginUserDaoImpl implements LoginUserDao {
 
 	/**
-	 * ログインユーザ作成する<br>
+	 * 指定されたパスワードからログインユーザ作成する<br>
 	 * @param password
-	 * @return
+	 * @return ログインユーザ情報
 	 */
 	@Override
 	public LoginUserEntity createLoginUser(String password) {
@@ -70,10 +70,10 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	/**
 	 * 顧客IDからログインユーザを検索する<br>
 	 * @param customerId
-	 * @return
+	 * @return ログインユーザ情報
 	 */
 	@Override
-	public LoginUserEntity getLoginUserEntityByCustomerId(String customerId) {
+	public LoginUserEntity getLoginUserByCustomerId(String customerId) {
 		// FIXME
 		LoginUserEntity entity = new LoginUserEntity();
 		entity.setSeqCustomerId(customerId);

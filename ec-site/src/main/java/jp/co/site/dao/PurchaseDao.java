@@ -14,7 +14,7 @@ public interface PurchaseDao {
 	/**
 	 * 顧客IDに紐付く購入商品情報を検索
 	 * @param customerId
-	 * @return
+	 * @return 購入商品情報
 	 */
 	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId);
 

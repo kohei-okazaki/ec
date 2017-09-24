@@ -1,5 +1,7 @@
 package jp.co.site.controller;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.site.entity.LoginUserEntity;
 import jp.co.site.service.AccountSearchService;
+import jp.co.site.util.DateUtil;
+import jp.co.site.view.PageView;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
 
@@ -34,10 +38,11 @@ public class AccountSettingController {
 	 * アカウント設定画面<br>
 	 * @param model
 	 * @param request
+	 * @param locale
 	 * @return 設定画面
 	 */
 	@RequestMapping(value = "account-setting.html", method = RequestMethod.GET)
-	public String accountSetting(Model model, HttpServletRequest request) {
+	public String accountSetting(Model model, HttpServletRequest request, Locale locale) {
 
 		LOG.info(this.getClass().getSimpleName() + "#accountSetting");
 
@@ -47,6 +52,9 @@ public class AccountSettingController {
 
 		LoginUserEntity entity = accountSearchService.findLoginUserByCustomerId(customerId);
 		model.addAttribute("loginUser", entity);
+		model.addAttribute("regDate", DateUtil.getFormattedTime(locale));
+
+		model.addAttribute("page", PageView.INPUT.getName());
 
 		return View.ACCOUNTSETTING.getName();
 	}

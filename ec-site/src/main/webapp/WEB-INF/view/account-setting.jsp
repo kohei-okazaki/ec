@@ -15,7 +15,9 @@
 </head>
 
 <body>
-	<h1 align="center">アカウント設定画面</h1>
+	<c:if test="${page == 0}"><h1 align="center">アカウント設定画面</h1></c:if>
+	<c:if test="${page == 1}"><h1 align="center">アカウント設定確認画面</h1></c:if>
+	<c:if test="${page == 2}"><h1 align="center">アカウント設定完了画面</h1></c:if>
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
@@ -79,6 +81,7 @@
 		<li><a href="/ec-site/login.html">ログアウト</a></li>
 	</ul>
 
+<c:if test="${page == 0}">
 	<div align="center">
 		<table border="1">
 			<tr>
@@ -91,9 +94,35 @@
 			</tr>
 			<tr>
 				<td><c:out value="登録日時" /></td>
-				<td><c:out value="${loginUser.regDate}" /></td>
+				<td><c:out value="${regDate}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先住所" /></td>
+				<td><c:out value="${regDate}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="登録日時" /></td>
+				<td><c:out value="${regDate}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="登録日時" /></td>
+				<td><c:out value="${regDate}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="登録日時" /></td>
+				<td><c:out value="${regDate}" /></td>
 			</tr>
 		</table>
 	</div>
+</c:if>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

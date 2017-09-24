@@ -29,7 +29,7 @@ public class LoginServiceImpl implements LoginService {
 	 * ログイン情報が不正であった場合, false<br>
 	 * そうでない場合trueを返す<br>
 	 * @param form
-	 * @return
+	 * @return 判定結果
 	 */
 	@Override
 	public boolean misMatch(LoginForm form) {
@@ -46,7 +46,7 @@ public class LoginServiceImpl implements LoginService {
 	/**
 	 * セッション情報の確認<br>
 	 * @param request
-	 * @return
+	 * @return 判定結果
 	 */
 	@Override
 	public boolean sessionCheck(HttpServletRequest request) {
