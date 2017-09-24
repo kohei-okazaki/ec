@@ -39,7 +39,7 @@ public class AccountSettingController {
 		HttpSession session = request.getSession();
 		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
 
-		LoginUserEntity entity = accountSearchService.findLoginUser(customerId);
+		LoginUserEntity entity = accountSearchService.findLoginUserByCustomerId(customerId);
 		model.addAttribute("loginUser", entity);
 
 

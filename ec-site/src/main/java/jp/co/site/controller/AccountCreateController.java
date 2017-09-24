@@ -20,6 +20,7 @@ import jp.co.site.view.View;
 @Controller
 public class AccountCreateController {
 
+	/** アカウント作成サービス */
 	@Autowired
 	private AccountCreateService accountCreateService;
 

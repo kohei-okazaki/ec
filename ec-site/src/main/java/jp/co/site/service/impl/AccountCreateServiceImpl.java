@@ -20,7 +20,7 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 
 	/** ログインユーザDao */
 	@Autowired
-	private LoginUserDao loginUserDao;
+	private LoginUserDao dao;
 
 	/**
 	 * パスワードのチェックを行う<br>
@@ -45,7 +45,7 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 	 */
 	@Override
 	public LoginUserEntity createLoginUser(AccountCreateForm form) {
-		return loginUserDao.createLoginUser(form.getPassword());
+		return dao.createLoginUser(form.getPassword());
 	}
 
 }

@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>商品購入画面</title>
+<link rel="icon" type="image/png" href="resources/images/favicon_login.png">
 <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
 <script type="text/javascript" src="resources/js/ec.js"></script>
 </head>
@@ -29,7 +30,12 @@
 			<ul>
 				<li><a href="#">商品</a>
 					<ul>
-						<li><a href="/ec-site/purchase.html">商品購入</a></li>
+						<li><a href="#">商品購入</a>
+							<ul>
+								<li><a href="/ec-site/purchase.html">単品</a></li>
+								<li><a href="/ec-site/purchase-file.html">ファイル</a></li>
+							</ul>
+						</li>
 						<li><a href="/ec-site/history.html">購入履歴</a></li>
 					</ul>
 				</li>
@@ -80,10 +86,14 @@
 	<form action="/ec-site/purchase-confirm.html" method="post">
 		<span class="fontawesome-list"></span>
 		<input type="text" name="itemName" required="required" placeholder="商品名" />
-		<span class="fontawesome-plus"></span>
+		<span class="fontawesome-cart-plus"></span>
 		<input type="text" name="itemCount" placeholder="商品数" />
 		<span class="fontawesome-money"></span>
 		<input type="text" name="itemPrice" placeholder="単価" />
+		<span class="fontawesome-credit-card"></span>
+		<input type="text" name="paymentMethod" placeholder="支払方法" />
+		<span class="fontawesome-plus-circle"></span>
+		<input type="text" name="paymentCount" placeholder="支払回数" />
 		<table>
 			<tr>
 				<td><input type="submit" value="確　認" /></td>

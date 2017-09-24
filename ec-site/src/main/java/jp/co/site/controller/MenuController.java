@@ -22,6 +22,7 @@ import jp.co.site.web.session.EcSiteSessionKey;
 @Controller
 public class MenuController {
 
+	/** ログイン画面サービス */
 	@Autowired
 	private LoginService loginService;
 
