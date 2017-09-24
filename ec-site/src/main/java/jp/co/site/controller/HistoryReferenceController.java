@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,8 +34,18 @@ public class HistoryReferenceController {
 	@Autowired
 	private FileDownloadService downloadService;
 
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
+	/**
+	 * 参照画面を表示する
+	 * @param model
+	 * @param request
+	 * @return 参照画面
+	 */
 	@RequestMapping(value = "/history.html")
 	public String reference(Model model, HttpServletRequest request) {
+
+		LOG.info(this.getClass().getSimpleName() + "#reference");
 
 		// 顧客IDを取得
 		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
@@ -44,8 +56,16 @@ public class HistoryReferenceController {
 		return View.HISTORY.getName();
 	}
 
+	/**
+	 * Excelダウンロードを行う<br>
+	 * @param model
+	 * @param request
+	 * @return 参照画面
+	 */
 	@RequestMapping(value = "/history.html", method = RequestMethod.POST)
 	public ModelAndView excelDownload(Model model, HttpServletRequest request) {
+
+		LOG.info(this.getClass().getSimpleName() + "#excelDownload");
 
 		// 顧客IDを取得
 		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());

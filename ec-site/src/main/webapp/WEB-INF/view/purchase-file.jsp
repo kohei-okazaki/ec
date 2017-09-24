@@ -8,16 +8,16 @@
 
 <head>
 <meta charset="UTF-8">
-<title>商品購入画面</title>
+<title>商品購入画面(一括)</title>
 <link rel="icon" type="image/png" href="resources/images/favicon_login.png">
 <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
 <script type="text/javascript" src="resources/js/ec.js"></script>
 </head>
 
 <body>
-<c:if test="${page == 0}"><h1 align="center">商品購入画面</h1></c:if>
-<c:if test="${page == 1}"><h1 align="center">購入確認画面</h1></c:if>
-<c:if test="${page == 2}"><h1 align="center">購入完了画面</h1></c:if>
+<c:if test="${page == 0}"><h1 align="center">商品購入画面 (一括)</h1></c:if>
+<c:if test="${page == 1}"><h1 align="center">購入確認画面 (一括)</h1></c:if>
+<c:if test="${page == 2}"><h1 align="center">購入完了画面 (一括)</h1></c:if>
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
@@ -83,42 +83,23 @@
 
 <div id="base">
 	<c:if test="${page == 0}">
-	<form action="/ec-site/purchase-confirm.html" method="post">
-		<span class="fontawesome-list"></span>
-		<input type="text" name="itemName" required="required" placeholder="商品名" />
-		<span class="fontawesome-plus"></span>
-		<input type="text" name="itemCount" placeholder="商品数" />
-		<span class="fontawesome-money"></span>
-		<input type="text" name="itemPrice" placeholder="単価" />
-		<span class="fontawesome-credit-card"></span>
-		<input type="text" name="paymentMethod" placeholder="支払方法" />
-		<span class="fontawesome-plus"></span>
-		<input type="text" name="paymentCount" placeholder="支払回数" />
-		<table>
-			<tr>
-				<td><input type="submit" value="確　認" /></td>
-				<td><input type="reset" value="リセット" /></td>
-			</tr>
-		</table>
-		<input type="button" value="戻　る" onclick="history.back()" />
-	</form>
+	<form:form action="/ec-site/purchase-file-confirm.html" method="post" modelAttribute="filePurchaseForm" enctype="multipart/form-data">
+
+		<form:input type="file" name="file" path="file" />
+		<form:errors path="file" />
+		<form:button>アップロードする</form:button>
+
+	</form:form>
 	</c:if>
 
 	<c:if test="${page == 1}">
 	<form action="/ec-site/purchase-complete.html" method="post">
-		<span class="fontawesome-list"></span>
-		<input type="text" name="itemName" value="${itemName}" disabled="disabled" />
-		<span class="fontawesome-plus"></span>
-		<input type="text" name="itemCount" value="${itemCount}" disabled="disabled" />
-		<span class="fontawesome-money"></span>
-		<input type="text" name="itemPrice" value="${itemPrice}" disabled="disabled" />
-
 		<input type="hidden" name="itemName" value="${itemName}" />
 		<input type="hidden" name="itemCount" value="${itemCount}" />
 		<input type="hidden" name="itemPrice" value="${itemPrice}" />
 		<table>
 			<tr>
-				<td><input type="submit" value="確　定" onclick="purchaseConfirm()" /></td>
+				<td><input type="submit" value="確　定" /></td>
 				<td><input type="button" value="戻　る" onclick="history.back()" /></td>
 			</tr>
 		</table>

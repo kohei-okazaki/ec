@@ -1,5 +1,7 @@
 package jp.co.site.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,13 +26,17 @@ public class AccountCreateController {
 	@Autowired
 	private AccountCreateService accountCreateService;
 
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
 	/**
 	 * アカウント作成画面<br>
 	 * @param model
-	 * @return
+	 * @return アカウント作成画面
 	 */
 	@RequestMapping(value = "/account-create.html", method = RequestMethod.GET)
 	public String accountCreate(Model model) {
+
+		LOG.info(this.getClass().getSimpleName() + "#accountCreate");
 
 		model.addAttribute("page", PageView.INPUT.getName());
 
@@ -40,11 +46,13 @@ public class AccountCreateController {
 	/**
 	 * 確認画面<br>
 	 * @param model
-	 * @param loginForm
-	 * @return
+	 * @param form
+	 * @return 確認画面
 	 */
 	@RequestMapping(value = "/account-create-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, AccountCreateForm form) {
+
+		LOG.info(this.getClass().getSimpleName() + "#confirm");
 
 		if (accountCreateService.invalidPassword(form)) {
 			// パスワードの入力が不正の場合
@@ -61,11 +69,13 @@ public class AccountCreateController {
 	/**
 	 * 完了画面<br>
 	 * @param model
-	 * @param loginForm
-	 * @return
+	 * @param form
+	 * @return 完了画面
 	 */
 	@RequestMapping(value = "/account-create-complete.html", method = RequestMethod.POST)
 	public String complete(Model model, AccountCreateForm form) {
+
+		LOG.info(this.getClass().getSimpleName() + "#complete");
 
 		LoginUserEntity loginUserEntity = accountCreateService.createLoginUser(form);
 		model.addAttribute("customerId", loginUserEntity.getSeqCustomerId());

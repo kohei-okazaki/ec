@@ -3,6 +3,8 @@ package jp.co.site.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,14 +28,18 @@ public class AccountSettingController {
 	@Autowired
 	private AccountSearchService accountSearchService;
 
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
 	/**
 	 * アカウント設定画面<br>
 	 * @param model
 	 * @param request
-	 * @return
+	 * @return 設定画面
 	 */
 	@RequestMapping(value = "account-setting.html", method = RequestMethod.GET)
 	public String accountSetting(Model model, HttpServletRequest request) {
+
+		LOG.info(this.getClass().getSimpleName() + "#accountSetting");
 
 		// セッションから顧客IDを取得
 		HttpSession session = request.getSession();
@@ -41,10 +47,6 @@ public class AccountSettingController {
 
 		LoginUserEntity entity = accountSearchService.findLoginUserByCustomerId(customerId);
 		model.addAttribute("loginUser", entity);
-
-
-
-
 
 		return View.ACCOUNTSETTING.getName();
 	}

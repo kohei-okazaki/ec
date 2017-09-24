@@ -3,6 +3,8 @@ package jp.co.site.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,17 +28,20 @@ public class MenuController {
 	@Autowired
 	private LoginService loginService;
 
+	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
+
 	/**
 	 * メニュー画面<br>
 	 * ログインフォームからの遷移の場合<br>
-	 * @param locale
 	 * @param form
 	 * @param model
 	 * @param request
-	 * @return
+	 * @return メニュー画面
 	 */
 	@RequestMapping(value = "/menu.html", method = RequestMethod.POST)
 	public String menu(LoginForm form, Model model, HttpServletRequest request) {
+
+		LOG.info(this.getClass().getSimpleName() + "#menu");
 
 		if (loginService.misMatch(form)) {
 			return View.LOGIN.getName();
@@ -53,10 +58,12 @@ public class MenuController {
 	 * セッション情報からのメニュー画面遷移<br>
 	 * @param model
 	 * @param request
-	 * @return
+	 * @return メニュー画面
 	 */
 	@RequestMapping(value = "/menu.html", method = RequestMethod.GET)
 	public String menu(Model model, HttpServletRequest request) {
+
+		LOG.info(this.getClass().getSimpleName() + "#menu");
 
 		if (loginService.sessionCheck(request)) {
 			// セッション情報が不正の場合
