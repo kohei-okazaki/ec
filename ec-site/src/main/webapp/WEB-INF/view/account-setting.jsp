@@ -81,7 +81,9 @@
 		<li><a href="/ec-site/login.html">ログアウト</a></li>
 	</ul>
 
-<c:if test="${page == 0}">
+<div id="base">
+<c:if test="${page == 3}">
+<form action="/ecsite/account-setting-input.html" method="get">
 	<div align="center">
 		<table border="1">
 			<tr>
@@ -93,20 +95,16 @@
 				<td><c:out value="${loginUser.password}" /></td>
 			</tr>
 			<tr>
-				<td><c:out value="登録日時" /></td>
-				<td><c:out value="${regDate}" /></td>
+				<td><c:out value="配送先都道府県" /></td>
+				<td><c:out value="${deliveryInfo.prefectures}" /></td>
 			</tr>
 			<tr>
-				<td><c:out value="配送先住所" /></td>
-				<td><c:out value="${regDate}" /></td>
+				<td><c:out value="配送先市区町村" /></td>
+				<td><c:out value="${deliveryInfo.city}" /></td>
 			</tr>
 			<tr>
-				<td><c:out value="登録日時" /></td>
-				<td><c:out value="${regDate}" /></td>
-			</tr>
-			<tr>
-				<td><c:out value="登録日時" /></td>
-				<td><c:out value="${regDate}" /></td>
+				<td><c:out value="配送先番地・部屋番号" /></td>
+				<td><c:out value="${deliveryInfo.address}" /></td>
 			</tr>
 			<tr>
 				<td><c:out value="登録日時" /></td>
@@ -114,6 +112,8 @@
 			</tr>
 		</table>
 	</div>
+	<input type="submit" value="変更">
+</form>
 </c:if>
 
 
@@ -124,5 +124,7 @@
 
 
 
+
+</div>
 </body>
 </html>

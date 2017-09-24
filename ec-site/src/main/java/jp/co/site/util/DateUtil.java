@@ -22,6 +22,16 @@ public class DateUtil {
 		return format.format(new Date()).replaceAll(" JST", StringUtil.TEMP).trim();
 	}
 
+	/**
+	 * 指定されたDateの書式を整えた日付を返す<br>
+	 * @param date
+	 * @return
+	 */
+	public static String getFormattedDate(Date date) {
+		DateFormat format = DateFormat.getTimeInstance();
+		return format.format(date);
+	}
+
 	public static String getSystemDate() {
 		DateFormat format = DateFormat.getTimeInstance();
 		return format.format(new Date());
