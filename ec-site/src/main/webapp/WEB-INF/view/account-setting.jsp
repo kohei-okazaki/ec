@@ -8,14 +8,16 @@
 
 <head>
 <meta charset="UTF-8">
-<title>購入履歴画面</title>
+<title>アカウント設定画面</title>
 <link rel="icon" type="image/png" href="resources/images/favicon_login.png">
 <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
 <script type="text/javascript" src="resources/js/ec.js"></script>
 </head>
 
 <body>
-	<h1 align="center">購入履歴画面</h1>
+	<c:if test="${page == 0}"><h1 align="center">アカウント設定画面</h1></c:if>
+	<c:if test="${page == 1}"><h1 align="center">アカウント設定確認画面</h1></c:if>
+	<c:if test="${page == 2}"><h1 align="center">アカウント設定完了画面</h1></c:if>
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
@@ -79,25 +81,50 @@
 		<li><a href="/ec-site/login.html">ログアウト</a></li>
 	</ul>
 
-<div id="history">
-	<form action="/ec-site/history.html" method="post">
-		<input type="submit" value="Excel出力" />
-	</form>
-	<table border="1">
-		<tr>
-			<th><c:out value="商品名" /></th>
-			<th><c:out value="購入数" /></th>
-			<th><c:out value="単価" /></th>
-		</tr>
-	<c:forEach var="result" items="${resultList}">
-		<tr>
-			<td><c:out value="${result.itemName}" /></td>
-			<td><c:out value="${result.itemCount}" /></td>
-			<td><c:out value="${result.itemPrice}" /></td>
-		</tr>
-	</c:forEach>
-	</table>
-</div>
+<div id="base">
+<c:if test="${page == 3}">
+<form action="/ecsite/account-setting-input.html" method="get">
+	<div align="center">
+		<table border="1">
+			<tr>
+				<td><c:out value="顧客ID" /></td>
+				<td><c:out value="${loginUser.seqCustomerId}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="パスワード" /></td>
+				<td><c:out value="${loginUser.password}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先都道府県" /></td>
+				<td><c:out value="${deliveryInfo.prefectures}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先市区町村" /></td>
+				<td><c:out value="${deliveryInfo.city}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先番地・部屋番号" /></td>
+				<td><c:out value="${deliveryInfo.address}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="登録日時" /></td>
+				<td><c:out value="${regDate}" /></td>
+			</tr>
+		</table>
+	</div>
+	<input type="submit" value="変更">
+</form>
+</c:if>
 
+
+
+
+
+
+
+
+
+
+</div>
 </body>
 </html>

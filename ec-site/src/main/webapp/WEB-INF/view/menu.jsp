@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>メニュー画面</title>
+<link rel="icon" type="image/png" href="resources/images/favicon_login.png">
 <link rel="stylesheet" type="text/css" href="resources/css/layout.css">
 <script type="text/javascript" src="resources/js/ec.js"></script>
 </head>
@@ -18,7 +19,7 @@
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
-			<td><c:out value="${sessionScope.customerId}" /></td>
+			<td><c:out value="${sessionScope.seqCustomerId}" /></td>
 		</tr>
 	</table>
 
@@ -27,7 +28,12 @@
 			<ul>
 				<li><a href="#">商品</a>
 					<ul>
-						<li><a href="/ec-site/purchase.html">商品購入</a></li>
+						<li><a href="#">商品購入</a>
+							<ul>
+								<li><a href="/ec-site/purchase.html">単品</a></li>
+								<li><a href="/ec-site/purchase-file.html">ファイル</a></li>
+							</ul>
+						</li>
 						<li><a href="/ec-site/history.html">購入履歴</a></li>
 					</ul>
 				</li>

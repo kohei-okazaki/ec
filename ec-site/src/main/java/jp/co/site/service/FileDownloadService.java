@@ -15,7 +15,8 @@ public interface FileDownloadService {
 
 	/**
 	 * 実行処理
-	 * @return
+	 * @param list
+	 * @return view
 	 */
 	public View execute(List<PurchaseItemEntity> list);
 }

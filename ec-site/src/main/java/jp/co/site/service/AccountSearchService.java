@@ -12,7 +12,7 @@ public interface AccountSearchService {
 	/**
 	 * 顧客IDからログインユーザ情報を取得する<br>
 	 * @param customerId
-	 * @return
+	 * @return ログインユーザ情報
 	 */
-	public LoginUserEntity findLoginUser(String customerId);
+	public LoginUserEntity findLoginUserByCustomerId(String customerId);
 }

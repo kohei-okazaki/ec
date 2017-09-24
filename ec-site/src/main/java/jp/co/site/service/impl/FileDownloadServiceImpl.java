@@ -19,7 +19,8 @@ public class FileDownloadServiceImpl implements FileDownloadService {
 
 	/**
 	 * 実行処理
-	 * @return
+	 * @param list
+	 * @return view
 	 */
 	@Override
 	public View execute(List<PurchaseItemEntity> list) {

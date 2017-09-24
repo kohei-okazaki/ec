@@ -13,7 +13,8 @@ public enum PageView {
 
 	INPUT("0"),
 	CONFIRM("1"),
-	COMPLETE("2");
+	COMPLETE("2"),
+	DETAIL("3");
 
 	@Setter(value = AccessLevel.PRIVATE)
 	@Getter

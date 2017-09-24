@@ -13,13 +13,14 @@ public interface AccountCreateService {
 	/**
 	 * パスワードのチェックを行う<br>
 	 * @param form
-	 * @return
+	 * @return 判定結果Ｓ
 	 */
 	public boolean invalidPassword(AccountCreateForm form);
 
 	/**
 	 * ログインユーザを作成する<br>
-	 * @return
+	 * @param form
+	 * @return LoginUserEntity
 	 */
 	public LoginUserEntity createLoginUser(AccountCreateForm form);
 }

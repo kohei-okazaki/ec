@@ -1,7 +1,5 @@
 package jp.co.site.service;
 
-import java.util.List;
-
 import jp.co.site.form.PurchaseForm;
 
 /**
@@ -12,15 +10,9 @@ import jp.co.site.form.PurchaseForm;
 public interface PurchaseService {
 
 	/**
-	 * 商品リストを返却する
-	 * @return
-	 */
-	public List<PurchaseForm> getAllItemList();
-
-	/**
 	 * 購入商品のチェックを行う<br>
 	 * @param form
-	 * @return
+	 * @return 判定結果
 	 */
 	public boolean checkPurchaseItem(PurchaseForm form);
 

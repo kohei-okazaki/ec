@@ -27,4 +27,18 @@ public class DateUtil {
 		return format.format(new Date());
 	}
 
+	/**
+	 * 日付の比較を行う.<br>
+	 * 日付が等しい場合は0<br>
+	 * Date1が引数Date2より前の場合は-1<br>
+	 * Date1が引数Date2より後の場合は1<br>
+	 * を返す.<br>
+	 * @param date1
+	 * @param date2
+	 * @return
+	 */
+	public static String getSubDate(Date date1, Date date2) {
+		return String.valueOf(date1.compareTo(date2));
+	}
+
 }

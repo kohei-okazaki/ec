@@ -22,11 +22,11 @@ public class AccountSearchServiceImpl implements AccountSearchService {
 	/**
 	 * 顧客IDからログインユーザ情報を取得する<br>
 	 * @param customerId
-	 * @return
+	 * @return ログインユーザ情報
 	 */
 	@Override
-	public LoginUserEntity findLoginUser(String customerId) {
-		return dao.getLoginUserEntityByCustomerId(customerId);
+	public LoginUserEntity findLoginUserByCustomerId(String customerId) {
+		return dao.getLoginUserByCustomerId(customerId);
 	}
 
 

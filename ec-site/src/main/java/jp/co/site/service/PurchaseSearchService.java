@@ -14,7 +14,7 @@ public interface PurchaseSearchService {
 	/**
 	 * 顧客IDに紐付く商品購入情報を検索する<br>
 	 * @param customerId
-	 * @return
+	 * @return 商品購入情報のリスト
 	 */
 	public List<PurchaseItemEntity> getPurchaseEntityByCustomerId(String customerId);
 }

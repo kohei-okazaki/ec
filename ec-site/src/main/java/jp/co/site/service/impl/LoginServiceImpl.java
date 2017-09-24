@@ -29,7 +29,7 @@ public class LoginServiceImpl implements LoginService {
 	 * ログイン情報が不正であった場合, false<br>
 	 * そうでない場合trueを返す<br>
 	 * @param form
-	 * @return
+	 * @return 判定結果
 	 */
 	@Override
 	public boolean misMatch(LoginForm form) {
@@ -38,7 +38,7 @@ public class LoginServiceImpl implements LoginService {
 			return true;
 		}
 
-		String dbPassword = accountsearchService.findLoginUser(form.getCustomerId()).getPassword();
+		String dbPassword = accountsearchService.findLoginUserByCustomerId(form.getCustomerId()).getPassword();
 		String inputPassword = form.getPassword();
 		return !dbPassword.equals(inputPassword);
 	}
@@ -46,13 +46,13 @@ public class LoginServiceImpl implements LoginService {
 	/**
 	 * セッション情報の確認<br>
 	 * @param request
-	 * @return
+	 * @return 判定結果
 	 */
 	@Override
 	public boolean sessionCheck(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String sessionCustomerId = (String) session.getAttribute(EcSiteSessionKey.CUSTOMER_ID.getName());
-		String dbPassword = accountsearchService.findLoginUser(sessionCustomerId).getPassword();
+		String sessionCustomerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		String dbPassword = accountsearchService.findLoginUserByCustomerId(sessionCustomerId).getPassword();
 		String sessionPassword = (String) session.getAttribute(EcSiteSessionKey.PASSWORD.getName());
 		return !dbPassword.equals(sessionPassword);
 	}

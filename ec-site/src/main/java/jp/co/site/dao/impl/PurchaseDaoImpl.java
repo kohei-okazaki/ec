@@ -19,7 +19,7 @@ public class PurchaseDaoImpl implements PurchaseDao {
 	/**
 	 * 顧客IDに紐付く購入商品情報を検索
 	 * @param customerId
-	 * @return
+	 * @return 購入商品情報
 	 */
 	@Override
 	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId) {
@@ -27,7 +27,7 @@ public class PurchaseDaoImpl implements PurchaseDao {
 		List<PurchaseItemEntity> resultList = new ArrayList<PurchaseItemEntity>();
 		for (int i = 0; i < 20; i++) {
 			PurchaseItemEntity entity = new PurchaseItemEntity();
-			entity.setCustomerId(customerId);
+			entity.setSeqCustomerId(customerId);
 			if (i % 3 == 0) {
 				entity.setItemName("リンゴ");
 				entity.setItemPrice(200);

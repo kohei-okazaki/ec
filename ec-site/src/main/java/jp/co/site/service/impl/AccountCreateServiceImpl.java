@@ -20,13 +20,12 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 
 	/** ログインユーザDao */
 	@Autowired
-	private LoginUserDao loginUserDao;
+	private LoginUserDao dao;
 
 	/**
 	 * パスワードのチェックを行う<br>
-	 * 正しくない場合true, 正しい場合false<br>
 	 * @param form
-	 * @return
+	 * @return 判定結果Ｓ
 	 */
 	@Override
 	public boolean invalidPassword(AccountCreateForm form) {
@@ -41,11 +40,11 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 	/**
 	 * ログインユーザを作成する<br>
 	 * @param form
-	 * @return
+	 * @return LoginUserEntity
 	 */
 	@Override
 	public LoginUserEntity createLoginUser(AccountCreateForm form) {
-		return loginUserDao.createLoginUser(form.getPassword());
+		return dao.createLoginUser(form.getPassword());
 	}
 
 }
