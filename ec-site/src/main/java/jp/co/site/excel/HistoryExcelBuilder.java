@@ -20,8 +20,10 @@ import jp.co.site.util.ExcelUtil;
  * エクセル出力クラス<be>
  *
  */
-@Property("購入商品情報")
 public class HistoryExcelBuilder extends BaseExcelBuilder {
+
+	@Property("購入商品情報")
+	private String sheetName;
 
 	/** 購入商品リスト */
 	private List<PurchaseItemEntity> purchaseList;
@@ -54,7 +56,10 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 		Sheet sheet;
 		Cell cell = null;
 
-		sheet = workbook.createSheet("購入商品情報");
+		sheet = workbook.createSheet(HistoryExcelBuilder.class
+														.getMethod("getSheetName", new Class[0])
+														.getAnnotation(Property.class)
+														.value());
 		setHeader(sheet, cell);
 
 		cell = ExcelUtil.getCell(sheet, 1, 0);
