@@ -27,6 +27,7 @@ import jp.co.site.view.View;
 @Controller
 public class FilePurchaseController {
 
+	/** ファイル一括購入サービス */
 	@Autowired
 	private FilePurchaseService filePurchaseService;
 

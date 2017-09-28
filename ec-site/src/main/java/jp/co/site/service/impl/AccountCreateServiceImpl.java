@@ -24,8 +24,9 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 
 	/**
 	 * パスワードのチェックを行う<br>
+	 * 無効なログイン情報の場合true, 正常なログイン情報の場合falseを返す<br>
 	 * @param form
-	 * @return 判定結果Ｓ
+	 * @return 判定結果を返す
 	 */
 	@Override
 	public boolean invalidPassword(AccountCreateForm form) {
