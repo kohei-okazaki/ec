@@ -43,7 +43,7 @@ public class FilePurchaseController {
 	 * @param model
 	 * @return 入力画面
 	 */
-	@RequestMapping(value = "purchase-file.html", method = RequestMethod.GET)
+	@RequestMapping(value = "/purchase-file.html", method = RequestMethod.GET)
 	public String fileInput(Model model) {
 
 		LOG.info(this.getClass().getSimpleName() + "#fileInput");
@@ -62,8 +62,8 @@ public class FilePurchaseController {
 	 * @param request
 	 * @return 確認画面
 	 */
-	@RequestMapping(value = "purchase-file-confirm.html", method = RequestMethod.POST)
-	public String fileConfirm(Model model , FilePurchaseForm form, HttpServletRequest request) {
+	@RequestMapping(value = "/purchase-file-confirm.html", method = RequestMethod.POST)
+	public String fileConfirm(Model model, FilePurchaseForm form, HttpServletRequest request) {
 
 		LOG.info(this.getClass().getSimpleName() + "#fileConfirm");
 
