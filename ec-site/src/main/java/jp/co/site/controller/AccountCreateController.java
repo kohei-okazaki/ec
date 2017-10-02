@@ -55,6 +55,7 @@ public class AccountCreateController {
 		LOG.info(this.getClass().getSimpleName() + "#confirm");
 
 		if (accountCreateService.invalidPassword(form)) {
+			LOG.error("パスワードの入力が不正です。");
 			// パスワードの入力が不正の場合
 			model.addAttribute("page", PageView.INPUT.getName());
 			return View.ACCOUNT_CREATE.getName();
