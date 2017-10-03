@@ -65,7 +65,7 @@ public class AccountSettingController {
 		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(customerId);
 		model.addAttribute("deliveryInfo", deliveryInfoEntity);
 
-		model.addAttribute("regDate", DateUtil.getFormattedDate(deliveryInfoEntity.getRegDate()));
+		model.addAttribute("regDate", DateUtil.getConvertDate(deliveryInfoEntity.getRegDate()));
 
 		model.addAttribute("page", PageView.DETAIL.getName());
 

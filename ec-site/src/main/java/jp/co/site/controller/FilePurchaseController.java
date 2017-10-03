@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jp.co.site.form.FilePurchaseForm;
@@ -50,7 +51,7 @@ public class FilePurchaseController {
 
 		model.addAttribute("page", PageView.INPUT.getName());
 
-		model.addAttribute("filePurchaseForm", filePurchaseService.setFilePurchaseForm());
+		model.addAttribute("filePurchaseForm", setFilePurchaseForm());
 
 		return View.PURCHASE_FILE.getName();
 	}
@@ -60,10 +61,14 @@ public class FilePurchaseController {
 	 * @param model
 	 * @param form
 	 * @param request
+	 * @param file
 	 * @return 確認画面
 	 */
 	@RequestMapping(value = "/purchase-file-confirm.html", method = RequestMethod.POST)
-	public String fileConfirm(Model model, FilePurchaseForm form, HttpServletRequest request) {
+	public String fileConfirm(Model model
+							, FilePurchaseForm form
+							, HttpServletRequest request
+							, @RequestParam MultipartFile file) {
 
 		LOG.info(this.getClass().getSimpleName() + "#fileConfirm");
 

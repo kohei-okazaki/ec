@@ -2,6 +2,7 @@ package jp.co.common.util;
 
 import java.text.DateFormat;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Locale;
 
@@ -15,7 +16,7 @@ public class DateUtil {
 	/**
 	 * 取得したlocaleの時間から書式を整えた時間を返却
 	 * @param locale
-	 * @return
+	 * @return 書式を整えた日付
 	 */
 	public static String getFormattedTime(Locale locale) {
 
@@ -31,7 +32,7 @@ public class DateUtil {
 	 * を返す.<br>
 	 * @param date1
 	 * @param date2
-	 * @return
+	 * @return 比較結果
 	 */
 	public static String getSubDate(Date date1, Date date2) {
 		return String.valueOf(date1.compareTo(date2));
@@ -39,10 +40,19 @@ public class DateUtil {
 
 	/**
 	 * 現在の日時を取得する。
-	 * @return
+	 * @return 現在の日時
 	 */
 	public static LocalDateTime getSystemDate() {
 		return LocalDateTime.now();
+	}
+
+	/**
+	 * date型の日時をLocalDateTimeに編集する。<br>
+	 * @param targetDate
+	 * @return 変換した日付
+	 */
+	public static LocalDateTime getConvertDate(Date targetDate) {
+		return LocalDateTime.ofInstant(targetDate.toInstant(), ZoneId.systemDefault());
 	}
 
 }
