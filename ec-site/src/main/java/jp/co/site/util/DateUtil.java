@@ -1,6 +1,8 @@
 package jp.co.site.util;
 
 import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Locale;
 
@@ -14,27 +16,12 @@ public class DateUtil {
 	/**
 	 * 取得したlocaleの時間から書式を整えた時間を返却
 	 * @param locale
-	 * @return 成形させた日付
+	 * @return
 	 */
 	public static String getFormattedTime(Locale locale) {
 
 		DateFormat format = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		return format.format(new Date()).replaceAll(" JST", StringUtil.TEMP).trim();
-	}
-
-	/**
-	 * 指定されたDateの書式を整えた日付を返す<br>
-	 * @param date
-	 * @return
-	 */
-	public static String getFormattedDate(Date date) {
-		DateFormat format = DateFormat.getTimeInstance();
-		return format.format(date);
-	}
-
-	public static String getSystemDate() {
-		DateFormat format = DateFormat.getTimeInstance();
-		return format.format(new Date());
 	}
 
 	/**
@@ -45,10 +32,27 @@ public class DateUtil {
 	 * を返す.<br>
 	 * @param date1
 	 * @param date2
-	 * @return 判定結果
+	 * @return
 	 */
 	public static String getSubDate(Date date1, Date date2) {
 		return String.valueOf(date1.compareTo(date2));
+	}
+
+	/**
+	 * 現在の日時を取得する。
+	 * @return
+	 */
+	public static LocalDateTime getSystemDate() {
+		return LocalDateTime.now();
+	}
+
+	/**
+	 * date型の日時をLocalDateTimeに編集する。<br>
+	 * @param targetDate
+	 * @return
+	 */
+	public static LocalDateTime getFormattedDate(Date targetDate) {
+		return LocalDateTime.ofInstant(targetDate.toInstant(), ZoneId.systemDefault());
 	}
 
 }

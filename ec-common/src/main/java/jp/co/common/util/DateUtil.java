@@ -1,6 +1,7 @@
 package jp.co.common.util;
 
 import java.text.DateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Locale;
 
@@ -22,11 +23,6 @@ public class DateUtil {
 		return format.format(new Date()).replaceAll(" JST", StringUtil.TEMP).trim();
 	}
 
-	public static String getSystemDate() {
-		DateFormat format = DateFormat.getTimeInstance();
-		return format.format(new Date());
-	}
-
 	/**
 	 * 日付の比較を行う.<br>
 	 * 日付が等しい場合は0<br>
@@ -39,6 +35,14 @@ public class DateUtil {
 	 */
 	public static String getSubDate(Date date1, Date date2) {
 		return String.valueOf(date1.compareTo(date2));
+	}
+
+	/**
+	 * 現在の日時を取得する。
+	 * @return
+	 */
+	public static LocalDateTime getSystemDate() {
+		return LocalDateTime.now();
 	}
 
 }
