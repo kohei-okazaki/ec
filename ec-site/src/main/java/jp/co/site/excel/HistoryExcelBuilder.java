@@ -14,16 +14,15 @@ import jp.co.site.entity.PurchaseItemEntity;
 import jp.co.site.other.Charset;
 import jp.co.site.other.Property;
 import jp.co.site.util.ExcelUtil;
+import jp.co.site.util.PropertyUtil;
 
 /**
  * @author kou1210hei<br>
  * エクセル出力クラス<be>
  *
  */
+@Property("購入商品情報")
 public class HistoryExcelBuilder extends BaseExcelBuilder {
-
-	@Property("購入商品情報")
-	private String sheetName;
 
 	/** 購入商品リスト */
 	private List<PurchaseItemEntity> purchaseList;
@@ -56,10 +55,7 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 		Sheet sheet;
 		Cell cell = null;
 
-		sheet = workbook.createSheet(HistoryExcelBuilder.class
-														.getMethod("getSheetName", new Class[0])
-														.getAnnotation(Property.class)
-														.value());
+		sheet = workbook.createSheet(PropertyUtil.getValue(this.getClass()));
 		setHeader(sheet, cell);
 
 		cell = ExcelUtil.getCell(sheet, 1, 0);
@@ -73,8 +69,6 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 			cell = ExcelUtil.getCell(sheet, i + 1, 2);
 			ExcelUtil.setText(cell, purchaseList.get(i).getItemPrice().toString());
 		}
-
-
 	}
 
 	/**
