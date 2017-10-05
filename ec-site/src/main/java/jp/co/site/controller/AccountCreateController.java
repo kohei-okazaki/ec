@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.site.entity.LoginUserEntity;
 import jp.co.site.form.AccountCreateForm;
+import jp.co.site.log.EcLogger;
 import jp.co.site.service.AccountCreateService;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
@@ -52,7 +53,7 @@ public class AccountCreateController {
 	@RequestMapping(value = "/account-create-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, AccountCreateForm form) {
 
-		LOG.info(this.getClass().getSimpleName() + "#confirm");
+		EcLogger.getInstance().info(getClass(), " # confirm");
 
 		if (accountCreateService.invalidPassword(form)) {
 			LOG.error("パスワードの入力が不正です。");
