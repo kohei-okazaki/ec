@@ -56,6 +56,7 @@
 		<url-pattern>/purchase-complete.html</url-pattern>
 		<url-pattern>/history.html</url-pattern>
 		<url-pattern>/account-setting.html</url-pattern>
+		<url-pattern>/account-setting-input.html</url-pattern>
 		<url-pattern>/account-setting-confirm.html</url-pattern>
 		<url-pattern>/account-setting-complete.html</url-pattern>
 		<url-pattern>/purchase-file.html</url-pattern>

@@ -73,7 +73,7 @@ public class AccountSettingController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "account-setting.html", method = RequestMethod.GET)
+	@RequestMapping(value = "account-setting-input.html", method = RequestMethod.GET)
 	public String input(Model model, HttpServletRequest request) {
 
 		LOG.info(this.getClass().getSimpleName() + "#accountSettingInput");

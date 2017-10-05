@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * プロパティアノテーション
  *
  */
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD, ElementType.TYPE} )
 public @interface Property {
 	String value();
