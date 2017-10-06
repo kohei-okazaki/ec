@@ -44,9 +44,8 @@ public class EcSiteFilter extends BaseFilter {
 	 * @throws ServletException
 	 */
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
-			throws IOException, ServletException {
-		// TODO
+	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+
 		HttpServletRequest request = (HttpServletRequest) req;
 		System.out.println(request.getRequestURI() + " : " + DateUtil.getSystemDate());
 

@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.springframework.web.servlet.view.document.AbstractXlsView;
+import org.springframework.web.servlet.view.document.AbstractXlsxView;
 
 /**
  * @author kou1210hei<br>
  * Excel出力の基底クラス<br>
  *
  */
-public abstract class BaseExcelBuilder extends AbstractXlsView {
+public abstract class BaseExcelBuilder extends AbstractXlsxView {
 
 	/**
 	 * エクセルに情報を書き込む<br>
@@ -28,8 +28,8 @@ public abstract class BaseExcelBuilder extends AbstractXlsView {
 	@Override
 	protected abstract void buildExcelDocument(Map<String, Object> model
 											, Workbook workbook
-											, HttpServletRequest request,
-											HttpServletResponse response) throws Exception;
+											, HttpServletRequest request
+											, HttpServletResponse response) throws Exception;
 
 
 	/**
