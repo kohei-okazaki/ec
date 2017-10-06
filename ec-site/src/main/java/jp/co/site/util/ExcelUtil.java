@@ -13,6 +13,12 @@ import org.apache.poi.ss.usermodel.Sheet;
 public class ExcelUtil {
 
 	/**
+	 * インスタンス生成を制限
+	 */
+	private ExcelUtil() {
+	}
+
+	/**
 	 * セルを返す<br>
 	 * @param sheet
 	 * @param row

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import jp.co.site.form.FilePurchaseForm;
@@ -64,13 +65,19 @@ public class FilePurchaseController {
 	 * @param file
 	 * @return 確認画面
 	 */
-	@RequestMapping(value = "/purchase-file-confirm.html", method = RequestMethod.POST)
+	@ResponseBody
+	@RequestMapping(value = "/purchase-file-confirm.html", method = RequestMethod.POST, headers = "content-type=multipart/form-data")
 	public String fileConfirm(Model model
 							, FilePurchaseForm form
 							, HttpServletRequest request
-							, @RequestParam MultipartFile file) {
+							, @RequestParam(value = "file", required = true) MultipartFile file) {
 
 		LOG.info(this.getClass().getSimpleName() + "#fileConfirm");
+
+		if (file.isEmpty()) {
+			LOG.warn("ファイルが空です");
+			return View.PURCHASE_FILE.getName();
+		}
 
 		File inputFile = (File) request.getAttribute("file");
 
