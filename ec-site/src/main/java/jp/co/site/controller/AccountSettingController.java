@@ -21,6 +21,7 @@ import jp.co.site.util.DateUtil;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
+import jp.co.site.web.session.EcsiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -55,7 +56,7 @@ public class AccountSettingController {
 
 		// セッションから顧客IDを取得
 		HttpSession session = request.getSession();
-		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
 		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(customerId);
@@ -85,7 +86,7 @@ public class AccountSettingController {
 
 		// セッションから顧客IDを取得
 		HttpSession session = request.getSession();
-		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
 		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(customerId);

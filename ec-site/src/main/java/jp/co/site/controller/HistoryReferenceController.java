@@ -3,6 +3,7 @@ package jp.co.site.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,7 @@ import jp.co.site.service.FileDownloadService;
 import jp.co.site.service.PurchaseSearchService;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
+import jp.co.site.web.session.EcsiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -48,7 +50,8 @@ public class HistoryReferenceController {
 		LOG.info(this.getClass().getSimpleName() + "#reference");
 
 		// 顧客IDを取得
-		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		HttpSession session = request.getSession();
+		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		List<PurchaseItemEntity> resultList = purchaseSearchService.getPurchaseEntityByCustomerId(customerId);
 
 		model.addAttribute("resultList", resultList);
@@ -68,7 +71,8 @@ public class HistoryReferenceController {
 		LOG.info(this.getClass().getSimpleName() + "#excelDownload");
 
 		// 顧客IDを取得
-		String customerId = (String) request.getSession().getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		HttpSession session = request.getSession();
+		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		List<PurchaseItemEntity> resultList = purchaseSearchService.getPurchaseEntityByCustomerId(customerId);
 
 		return new ModelAndView(downloadService.execute(resultList));

@@ -11,6 +11,7 @@ import jp.co.site.service.AccountSearchService;
 import jp.co.site.service.LoginService;
 import jp.co.site.util.StringUtil;
 import jp.co.site.web.session.EcSiteSessionKey;
+import jp.co.site.web.session.EcsiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -51,9 +52,9 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public boolean sessionCheck(HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String sessionCustomerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		String sessionCustomerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		String dbPassword = accountsearchService.findLoginUserByCustomerId(sessionCustomerId).getPassword();
-		String sessionPassword = (String) session.getAttribute(EcSiteSessionKey.PASSWORD.getName());
+		String sessionPassword = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.PASSWORD);
 		return !dbPassword.equals(sessionPassword);
 	}
 

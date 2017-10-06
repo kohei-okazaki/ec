@@ -15,6 +15,7 @@ import jp.co.site.form.LoginForm;
 import jp.co.site.service.LoginService;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
+import jp.co.site.web.session.EcsiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -48,8 +49,9 @@ public class MenuController {
 		}
 
 		HttpSession session = request.getSession();
-		session.setAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName(), form.getCustomerId());
-		session.setAttribute(EcSiteSessionKey.PASSWORD.getName(), form.getPassword());
+		EcsiteSessionManager manager = EcsiteSessionManager.getInstance();
+		manager.setAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID, form.getCustomerId());
+		manager.setAttribute(session, EcSiteSessionKey.PASSWORD, form.getPassword());
 
 		return View.MENU.getName();
 	}
