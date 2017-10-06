@@ -4,6 +4,8 @@ import java.util.Objects;
 
 import javax.servlet.http.HttpSession;
 
+import jp.co.site.util.StringUtil;
+
 /**
  * @author kou1210hei<br>
  * ECサイトのsession管理クラス<br>
@@ -35,7 +37,9 @@ public class EcsiteSessionManager {
 	 * @return value
 	 */
 	public String getAttribute(HttpSession session, EcSiteSessionKey key) {
-		return Objects.requireNonNull(session.getAttribute(key.getName()), "null").toString();
+
+		Object value = session.getAttribute(key.getName());
+		return Objects.isNull(value) ? StringUtil.EMPTY : value.toString();
 	}
 
 	/**
