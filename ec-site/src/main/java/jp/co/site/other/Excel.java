@@ -16,7 +16,16 @@ import java.lang.annotation.Target;
 @Target({ ElementType.FIELD, ElementType.TYPE})
 public @interface Excel {
 
+	/**
+	 * シート名
+	 * @return
+	 */
 	String sheetName();
+
+	/**
+	 * セル名
+	 * @return
+	 */
 	String[] cellNames();
 
 }
