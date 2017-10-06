@@ -7,13 +7,16 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author kou1210hei<br>
- * プロパティアノテーション<br>
+ * @author kohei.okazaki<br>
+ * Excelのアノテーションクラス<br>
  *
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD, ElementType.TYPE} )
-public @interface Property {
-	String value();
+public @interface Excel {
+
+	String sheetName();
+	String[] cellNames();
+
 }

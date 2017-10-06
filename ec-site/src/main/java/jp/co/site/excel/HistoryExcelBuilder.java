@@ -12,7 +12,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 
 import jp.co.site.entity.PurchaseItemEntity;
 import jp.co.site.other.Charset;
-import jp.co.site.other.Property;
+import jp.co.site.other.Excel;
 import jp.co.site.util.ExcelUtil;
 import jp.co.site.util.PropertyUtil;
 
@@ -21,7 +21,7 @@ import jp.co.site.util.PropertyUtil;
  * エクセル出力クラス<be>
  *
  */
-@Property("購入商品情報")
+@Excel(sheetName = "購入商品情報", cellNames = {"商品名", "購入商品数", "単価"})
 public class HistoryExcelBuilder extends BaseExcelBuilder {
 
 	/** 購入商品リスト */
