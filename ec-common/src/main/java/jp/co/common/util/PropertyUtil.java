@@ -1,6 +1,6 @@
-package jp.co.site.util;
+package jp.co.common.util;
 
-import jp.co.site.other.Property;
+import jp.co.common.other.Property;
 
 /**
  * @author kohei.okazaki<br>
