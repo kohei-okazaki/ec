@@ -14,7 +14,6 @@ import jp.co.site.entity.PurchaseItemEntity;
 import jp.co.site.other.Charset;
 import jp.co.site.other.Excel;
 import jp.co.site.util.ExcelUtil;
-import jp.co.site.util.PropertyUtil;
 
 /**
  * @author kou1210hei<br>
@@ -55,7 +54,7 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 		Sheet sheet;
 		Cell cell = null;
 
-		sheet = workbook.createSheet(PropertyUtil.getValue(this.getClass()));
+		sheet = workbook.createSheet(ExcelUtil.getSheetName(this.getClass()));
 		setHeader(sheet, cell);
 
 		cell = ExcelUtil.getCell(sheet, 1, 0);
@@ -78,13 +77,12 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 	 */
 	@Override
 	protected void setHeader(Sheet sheet, Cell cell) {
-		// ヘッダ設定
-		cell = ExcelUtil.getCell(sheet, 0, 0);
-		ExcelUtil.setText(cell, "商品名");
-		cell = ExcelUtil.getCell(sheet, 0, 1);
-		ExcelUtil.setText(cell, "購入商品数");
-		cell = ExcelUtil.getCell(sheet, 0, 2);
-		ExcelUtil.setText(cell, "単価");
+		List<String> cellNameList = ExcelUtil.getCellList(this.getClass());
+		for (int i = 0; i < cellNameList.size(); i++) {
+			String cellName = cellNameList.get(i);
+			cell = ExcelUtil.getCell(sheet, 0, i);
+			ExcelUtil.setText(cell, cellName);
+		}
 	}
 
 }
