@@ -18,7 +18,7 @@ public class PropertyUtil {
 	/**
 	 * Propertyアノテーションのvalueを返す<br>
 	 * @param clazz
-	 * @return
+	 * @return value
 	 */
 	public static String getValue(Class<?> clazz) {
 		Property property = (Property) clazz.getAnnotation(Property.class);
