@@ -37,7 +37,7 @@ after {
 
 #base form {
 	margin: auto;
-	padding: 22px 22px 22px 22px;
+	padding: 20px 20px 20px 20px;
 	width: 100%;
 	border-radius: 5px;
 	background: #282e33;
@@ -331,3 +331,8 @@ after {
 #history table tr td {
 	width: 163px;
 }
+
+
+
+
+

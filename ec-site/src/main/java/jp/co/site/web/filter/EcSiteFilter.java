@@ -31,7 +31,7 @@ public class EcSiteFilter extends BaseFilter {
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		super.init(filterConfig);
-		System.out.println("【Filter】" + this.getClass().getSimpleName() + " start");
+		System.out.println("【Filter】 " + this.getClass().getSimpleName() + " start");
 	}
 
 	/**

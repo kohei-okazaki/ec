@@ -28,9 +28,12 @@
 	</beans:bean>
 
 	<!-- conportnentScan -->
-	<!-- controllerクラスがどこにあるか記載 -->
 	<context:component-scan base-package="jp.co.site.controller" />
 	<context:component-scan base-package="jp.co.site.dao.impl" />
 	<context:component-scan base-package="jp.co.site.service.impl" />
+
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
+
 
 </beans:beans>

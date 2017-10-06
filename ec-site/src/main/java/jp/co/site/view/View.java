@@ -10,12 +10,19 @@ import lombok.Setter;
  */
 public enum View {
 
+	/** ログイン画面 */
 	LOGIN("login"),
+	/** アカウント作成画面 */
 	ACCOUNT_CREATE("account-create"),
+	/** メニュー画面 */
 	MENU("menu"),
+	/** 購入画面 */
 	PURCHASE("purchase"),
+	/** 購入履歴画面 */
 	HISTORY("history"),
-	ACCOUNTSETTING("account-setting"),
+	/** アカウント設定画面 */
+	ACCOUNT_SETTING("account-setting"),
+	/** 一括購入画面 */
 	PURCHASE_FILE("purchase-file");
 
 	@Setter(value = AccessLevel.PRIVATE)

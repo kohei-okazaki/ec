@@ -15,9 +15,10 @@
 </head>
 
 <body>
-	<c:if test="${page == 0}"><h1 align="center">アカウント設定画面</h1></c:if>
+	<c:if test="${page == 0}"><h1 align="center">アカウント設定入力画面</h1></c:if>
 	<c:if test="${page == 1}"><h1 align="center">アカウント設定確認画面</h1></c:if>
 	<c:if test="${page == 2}"><h1 align="center">アカウント設定完了画面</h1></c:if>
+	<c:if test="${page == 3}"><h1 align="center">アカウント設定詳細画面</h1></c:if>
 	<table border="1">
 		<tr>
 			<th><c:out value="顧客ID" /></th>
@@ -80,10 +81,14 @@
 		</li>
 		<li><a href="/ec-site/login.html">ログアウト</a></li>
 	</ul>
-
+	<c:if test="${errorMessage != null}">
+		<div align="center">
+			<c:if test="${errorMessage}" />
+		</div>
+	</c:if>
 <div id="base">
 <c:if test="${page == 3}">
-<form action="/ecsite/account-setting-input.html" method="get">
+<form action="/ec-site/account-setting-input.html" method="get">
 	<div align="center">
 		<table border="1">
 			<tr>
@@ -116,15 +121,78 @@
 </form>
 </c:if>
 
+<c:if test="${page == 0}">
+<form action="/ec-site/account-setting-confirm.html" method="post">
+	<div align="center">
+		<table border="1">
+			<tr>
+				<td><c:out value="顧客ID" /></td>
+				<td><c:out value="${loginUser.seqCustomerId}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="パスワード" /></td>
+				<td><input type="password" name="password" value="" placeholder="${loginUser.password}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先都道府県" /></td>
+				<td><input type="text" name="prefectures" value="" placeholder="${deliveryInfo.prefectures}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先市区町村" /></td>
+				<td><input type="text" name="city" value="" placeholder="${deliveryInfo.city}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先番地・部屋番号" /></td>
+				<td><input type="text" name="address" value="" placeholder="${deliveryInfo.address}" /></td>
+			</tr>
+		</table>
+	</div>
+	<input type="submit" value="確認">
+</form>
+</c:if>
 
+<c:if test="${page == 1}">
+<form action="/ec-site/account-setting-complete.html" method="post">
+	<div align="center">
+		<table border="1">
+			<tr>
+				<td><c:out value="顧客ID" /></td>
+				<td><c:out value="${loginUser.seqCustomerId}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="パスワード" /></td>
+				<td><c:out value="${loginUser.password}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先都道府県" /></td>
+				<td><c:out value="${deliveryInfo.prefectures}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先市区町村" /></td>
+				<td><c:out value="${deliveryInfo.city}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="配送先番地・部屋番号" /></td>
+				<td><c:out value="${deliveryInfo.address}" /></td>
+			</tr>
+			<tr>
+				<td><c:out value="登録日時" /></td>
+				<td><c:out value="${regDate}" /></td>
+			</tr>
+		</table>
+	</div>
+	<input type="submit" value="確定">
+</form>
+</c:if>
 
-
-
-
-
-
-
-
+<c:if test="${page == 2}">
+<form action="/ec-site/menu.html" method="get">
+	<div align="center">
+		<c:out value="変更完了しました。" />
+	</div>
+	<input type="submit" value="メニューへ戻る">
+</form>
+</c:if>
 </div>
 </body>
 </html>
