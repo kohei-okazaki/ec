@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
+import jp.co.site.web.session.EcsiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -36,7 +37,7 @@ public class LoginController {
 		LOG.info(this.getClass().getSimpleName() + "#login");
 
 		HttpSession session = request.getSession();
-		session.removeAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		EcsiteSessionManager.getInstance().removeKey(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		return View.LOGIN.getName();
 	}
 

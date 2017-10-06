@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import jp.co.site.util.DateUtil;
 import jp.co.site.web.session.EcSiteSessionKey;
+import jp.co.site.web.session.EcsiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -50,7 +51,7 @@ public class EcSiteFilter extends BaseFilter {
 		System.out.println(request.getRequestURI() + " : " + DateUtil.getSystemDate());
 
 		HttpSession session = request.getSession();
-		String customerId = (String) session.getAttribute(EcSiteSessionKey.SEQ_CUSTOMER_ID.getName());
+		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		System.out.println("customerId : " + customerId);
 		chain.doFilter(req, resp);
 	}
