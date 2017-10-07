@@ -48,7 +48,7 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 									, HttpServletRequest request
 									, HttpServletResponse response) throws Exception {
 
-		String fileName = new String("sample.xlsx".getBytes(Charset.MS_932.getName()), "ISO-8859-1");
+		String fileName = new String("sample.xls".getBytes(Charset.MS_932.getName()), "ISO-8859-1");
 		response.setHeader("Content-Desposition", "attachment; filename=" + fileName);
 
 		Cell cell = null;
