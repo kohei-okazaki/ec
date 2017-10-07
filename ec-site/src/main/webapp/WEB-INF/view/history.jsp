@@ -80,7 +80,7 @@
 	</ul>
 
 <div id="history">
-	<form action="/ec-site/history.html" method="post">
+	<form action="/ec-site/history-download.html" method="get">
 		<input type="submit" value="Excel出力" />
 	</form>
 	<table border="1">
