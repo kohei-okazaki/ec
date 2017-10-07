@@ -51,13 +51,10 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 		String fileName = new String("sample.xlsx".getBytes(Charset.MS_932.getName()), "ISO-8859-1");
 		response.setHeader("Content-Desposition", "attachment; filename=" + fileName);
 
-		Sheet sheet;
 		Cell cell = null;
 
-		sheet = workbook.createSheet(ExcelUtil.getSheetName(this.getClass()));
+		Sheet sheet = workbook.createSheet(ExcelUtil.getSheetName(this.getClass()));
 		setHeader(sheet, cell);
-
-		cell = ExcelUtil.getCell(sheet, 1, 0);
 
 		// 購入商品情報を1レコードずつ設定する
 		for (int i = 0; i < purchaseList.size(); i++) {
@@ -77,9 +74,9 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 	 */
 	@Override
 	protected void setHeader(Sheet sheet, Cell cell) {
-		List<String> cellNameList = ExcelUtil.getCellList(this.getClass());
-		for (int i = 0; i < cellNameList.size(); i++) {
-			String cellName = cellNameList.get(i);
+		List<String> headerNameList = ExcelUtil.getHeaderList(this.getClass());
+		for (int i = 0; i < headerNameList.size(); i++) {
+			String cellName = headerNameList.get(i);
 			cell = ExcelUtil.getCell(sheet, 0, i);
 			ExcelUtil.setText(cell, cellName);
 		}
