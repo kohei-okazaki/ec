@@ -24,7 +24,7 @@ public class ExcelUtil {
 	}
 
 	/**
-	 * Excelアノテーションに設定されたシート名をリストととして返す。<br>
+	 * Excelアノテーションに設定されたシート名を返す。<br>
 	 * @param clazz
 	 * @return シート名
 	 */
@@ -38,7 +38,7 @@ public class ExcelUtil {
 	 * @param clazz
 	 * @return cell名
 	 */
-	public static List<String> getCellList(Class<?> clazz) {
+	public static List<String> getHeaderList(Class<?> clazz) {
 		Excel excel = getExcelClass(clazz);
 		return Arrays.asList(excel.cellNames());
 	}

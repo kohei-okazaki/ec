@@ -65,7 +65,7 @@ public class HistoryReferenceController {
 	 * @param request
 	 * @return 参照画面
 	 */
-	@RequestMapping(value = "/history.html", method = RequestMethod.POST)
+	@RequestMapping(value = "/history-download.html", method = RequestMethod.GET)
 	public ModelAndView excelDownload(Model model, HttpServletRequest request) {
 
 		LOG.info(this.getClass().getSimpleName() + "#excelDownload");
