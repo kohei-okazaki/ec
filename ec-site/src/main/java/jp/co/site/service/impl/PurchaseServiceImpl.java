@@ -1,7 +1,9 @@
 package jp.co.site.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jp.co.site.dao.PurchaseDao;
 import jp.co.site.form.PurchaseForm;
 import jp.co.site.service.PurchaseService;
 import jp.co.site.util.StringUtil;
@@ -13,6 +15,10 @@ import jp.co.site.util.StringUtil;
  */
 @Service
 public class PurchaseServiceImpl implements PurchaseService {
+
+	/** 購入商品Dao */
+	@Autowired
+	private PurchaseDao purchaseDao;
 
 	/**
 	 * 購入商品のチェックを行う<br>
@@ -26,6 +32,15 @@ public class PurchaseServiceImpl implements PurchaseService {
 			|| StringUtil.isEmpty(form.getItemPrice().toString())
 			|| StringUtil.isEmpty(form.getPaymentMethod())
 			|| StringUtil.isEmpty(form.getPaymentCount().toString());
+	}
+
+	/**
+	 * 商品購入処理を行う。<br>
+	 * @param form
+	 */
+	@Override
+	public void registPurchaseItem(PurchaseForm form) {
+		purchaseDao.insertPurchaseInfo(form);
 	}
 
 }

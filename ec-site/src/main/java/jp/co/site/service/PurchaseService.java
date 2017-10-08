@@ -16,5 +16,11 @@ public interface PurchaseService {
 	 */
 	public boolean checkPurchaseItem(PurchaseForm form);
 
+	/**
+	 * 商品購入処理を行う。<br>
+	 * @param form
+	 */
+	public void registPurchaseItem(PurchaseForm form);
+
 
 }

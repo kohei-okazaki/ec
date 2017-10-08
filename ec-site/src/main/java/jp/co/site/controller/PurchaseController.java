@@ -84,6 +84,8 @@ public class PurchaseController {
 		model.addAttribute("itemName", form.getItemName());
 		model.addAttribute("itemCount", form.getItemCount());
 		model.addAttribute("itemPrice", form.getItemPrice());
+		model.addAttribute("paymentMethod", form.getPaymentMethod());
+		model.addAttribute("paymentCount", form.getPaymentCount());
 
 		model.addAttribute("page", PageView.COMPLETE.getName());
 

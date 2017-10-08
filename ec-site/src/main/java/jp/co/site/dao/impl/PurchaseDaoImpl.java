@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.site.dao.PurchaseDao;
 import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.form.PurchaseForm;
 
 /**
  * @author kou1210hei<br>
@@ -48,6 +49,15 @@ public class PurchaseDaoImpl implements PurchaseDao {
 			resultList.add(entity);
 		}
 		return resultList;
+	}
+
+	/**
+	 * 購入商品情報を登録する<br>
+	 * @param form
+	 */
+	@Override
+	public void insertPurchaseInfo(PurchaseForm form) {
+		// TODO 登録処理を実装
 	}
 
 }
