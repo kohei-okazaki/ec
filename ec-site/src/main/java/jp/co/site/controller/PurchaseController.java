@@ -81,6 +81,9 @@ public class PurchaseController {
 
 		LOG.info(this.getClass().getSimpleName() + "#complete");
 
+		// 購入商品情報を登録する
+		purchaseService.registPurchaseItem(form);
+
 		model.addAttribute("itemName", form.getItemName());
 		model.addAttribute("itemCount", form.getItemCount());
 		model.addAttribute("itemPrice", form.getItemPrice());
