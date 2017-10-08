@@ -14,7 +14,7 @@ import jp.co.site.service.FilePurchaseService;
 public class FilePurchaseServiceImpl implements FilePurchaseService {
 
 	@Override
-	public FilePurchaseForm setFilePurchaseForm() {
+	public FilePurchaseForm getFilePurchaseForm() {
 		return new FilePurchaseForm();
 	}
 

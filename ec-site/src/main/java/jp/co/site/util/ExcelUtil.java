@@ -2,6 +2,7 @@ package jp.co.site.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -61,11 +62,11 @@ public class ExcelUtil {
 	 */
 	public static Cell getCell(Sheet sheet, int row, int col) {
 		Row sheetRow = sheet.getRow(row);
-		if (sheetRow == null) {
+		if (Objects.isNull(sheetRow)) {
 			sheetRow = sheet.createRow(row);
 		}
 		Cell cell = sheetRow.getCell(col);
-		if (cell == null) {
+		if (Objects.isNull(cell)) {
 			cell = sheetRow.createCell(col);
 		}
 		return cell;

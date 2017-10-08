@@ -83,13 +83,12 @@
 
 <div id="base">
 	<c:if test="${page == 0}">
-	<form:form action="/ec-site/purchase-file-confirm.html" method="post" modelAttribute="filePurchaseForm" enctype="multipart/form-data">
+	<form action="/ec-site/purchase-file-confirm.html" method="post" enctype="multipart/form-data">
 
-		<form:input type="file" name="file" path="file" />
-		<form:errors path="file" />
-		<form:button>アップロードする</form:button>
+		<input type="file" name="file" value="Fileを選択" />
+		<input type="submit" value="upload" />
 
-	</form:form>
+	</form>
 	</c:if>
 
 	<c:if test="${page == 1}">

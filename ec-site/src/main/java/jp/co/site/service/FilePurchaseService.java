@@ -9,6 +9,6 @@ import jp.co.site.form.FilePurchaseForm;
  */
 public interface FilePurchaseService {
 
-	public FilePurchaseForm setFilePurchaseForm();
+	public FilePurchaseForm getFilePurchaseForm();
 
 }
