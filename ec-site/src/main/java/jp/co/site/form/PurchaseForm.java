@@ -11,4 +11,8 @@ public class PurchaseForm {
 
 	private Integer itemCount;
 
+	private String paymentMethod;
+
+	private Integer paymentCount;
+
 }

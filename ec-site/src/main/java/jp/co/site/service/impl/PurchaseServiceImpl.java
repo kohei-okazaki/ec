@@ -23,7 +23,9 @@ public class PurchaseServiceImpl implements PurchaseService {
 	public boolean checkPurchaseItem(PurchaseForm form) {
 		return StringUtil.isEmpty(form.getItemName())
 			|| StringUtil.isEmpty(form.getItemCount().toString())
-			|| StringUtil.isEmpty(form.getItemPrice().toString());
+			|| StringUtil.isEmpty(form.getItemPrice().toString())
+			|| StringUtil.isEmpty(form.getPaymentMethod())
+			|| StringUtil.isEmpty(form.getPaymentCount().toString());
 	}
 
 }

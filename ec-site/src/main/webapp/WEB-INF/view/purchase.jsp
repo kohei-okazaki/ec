@@ -84,14 +84,19 @@
 <div id="base">
 	<c:if test="${page == 0}">
 	<form action="/ec-site/purchase-confirm.html" method="post">
+		<!-- 商品名 -->
 		<span class="fontawesome-list"></span>
 		<input type="text" name="itemName" required="required" placeholder="商品名" />
+		<!-- 商品数 -->
 		<span class="fontawesome-plus"></span>
 		<input type="text" name="itemCount" placeholder="商品数" />
+		<!-- 単価 -->
 		<span class="fontawesome-money"></span>
 		<input type="text" name="itemPrice" placeholder="単価" />
+		<!-- 支払方法 -->
 		<span class="fontawesome-credit-card"></span>
 		<input type="text" name="paymentMethod" placeholder="支払方法" />
+		<!-- 支払い回数 -->
 		<span class="fontawesome-plus"></span>
 		<input type="text" name="paymentCount" placeholder="支払回数" />
 		<table>
@@ -112,10 +117,16 @@
 		<input type="text" name="itemCount" value="${itemCount}" disabled="disabled" />
 		<span class="fontawesome-money"></span>
 		<input type="text" name="itemPrice" value="${itemPrice}" disabled="disabled" />
+		<span class="fontawesome-credit-card"></span>
+		<input type="text" name="paymentMethod" value="${paymentMethod}" disabled="disabled"/>
+		<span class="fontawesome-plus"></span>
+		<input type="text" name="paymentCount" value="${paymentCount}" disabled="disabled"/>
 
 		<input type="hidden" name="itemName" value="${itemName}" />
 		<input type="hidden" name="itemCount" value="${itemCount}" />
 		<input type="hidden" name="itemPrice" value="${itemPrice}" />
+		<input type="hidden" name="paymentMethod" value="${paymentMethod}" />
+		<input type="hidden" name="paymentCount" value="${paymentCount}" />
 		<table>
 			<tr>
 				<td><input type="submit" value="確　定" onclick="purchaseConfirm()" /></td>
