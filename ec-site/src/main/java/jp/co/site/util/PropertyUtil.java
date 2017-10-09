@@ -21,8 +21,16 @@ public class PropertyUtil {
 	 * @return value
 	 */
 	public static String getValue(Class<?> clazz) {
-		Property property = (Property) clazz.getAnnotation(Property.class);
-		return property.value();
+		return getPropertyClass(clazz).value();
+	}
+
+	/**
+	 * Propertyアノテーションのクラス型を取得する<br>
+	 * @param clazz
+	 * @return
+	 */
+	private static Property getPropertyClass(Class<?> clazz) {
+		return clazz.getAnnotation(Property.class);
 	}
 
 }

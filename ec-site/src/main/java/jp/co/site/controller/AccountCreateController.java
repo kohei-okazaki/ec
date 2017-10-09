@@ -53,7 +53,7 @@ public class AccountCreateController {
 	@RequestMapping(value = "/account-create-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, AccountCreateForm form) {
 
-		EcLogger.getInstance().info(getClass(), " # confirm");
+		EcLogger.getInstance().info(this.getClass(), " # confirm");
 
 		if (accountCreateService.invalidPassword(form)) {
 			LOG.error("パスワードの入力が不正です。");

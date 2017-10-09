@@ -50,6 +50,16 @@ public class PurchaseItemEntity implements Serializable {
 
 	@Setter
 	@Getter
+	@Column(name = "PAYMENT_METHOD")
+	private String paymentMethod;
+
+	@Setter
+	@Getter
+	@Column(name = "PAYMENT_COUNT")
+	private Integer paymentCount;
+
+	@Setter
+	@Getter
 	@Column(name = "REG_DATE")
 	private Date regDate;
 

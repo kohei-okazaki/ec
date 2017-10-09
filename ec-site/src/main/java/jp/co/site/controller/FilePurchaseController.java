@@ -36,8 +36,8 @@ public class FilePurchaseController {
 	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
 	@ModelAttribute
-	public FilePurchaseForm setFilePurchaseForm() {
-		return filePurchaseService.setFilePurchaseForm();
+	public FilePurchaseForm getFilePurchaseForm() {
+		return filePurchaseService.getFilePurchaseForm();
 	}
 
 	/**
@@ -52,7 +52,7 @@ public class FilePurchaseController {
 
 		model.addAttribute("page", PageView.INPUT.getName());
 
-		model.addAttribute("filePurchaseForm", setFilePurchaseForm());
+		model.addAttribute("filePurchaseForm", getFilePurchaseForm());
 
 		return View.PURCHASE_FILE.getName();
 	}

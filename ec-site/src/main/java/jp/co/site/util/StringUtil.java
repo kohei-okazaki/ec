@@ -2,6 +2,7 @@ package jp.co.site.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 /**
@@ -33,7 +34,7 @@ public class StringUtil {
 	 */
 	public static List<String> toStrList(String target, String delim) {
 
-		if (target == null || EMPTY.equals(target)) {
+		if (Objects.isNull(target) || EMPTY.equals(target)) {
 			return null;
 		}
 		List<String> result = new ArrayList<String>();
@@ -52,7 +53,7 @@ public class StringUtil {
 	 * @return 判定結果
 	 */
 	public static boolean isEmpty(String target) {
-		return target == null || EMPTY.equals(target.trim());
+		return Objects.isNull(target) || EMPTY.equals(target.trim());
 	}
 
 	/**
