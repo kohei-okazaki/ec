@@ -1,5 +1,3 @@
 **#ec**  
-*##ec-site
->ec-site画面*  
-*##ec-common
->共通*  
+*##ec-site   ec-site画面*  
+*##ec-common 共通*  
