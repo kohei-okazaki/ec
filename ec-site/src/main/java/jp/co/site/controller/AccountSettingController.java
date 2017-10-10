@@ -43,7 +43,7 @@ public class AccountSettingController {
 	/**
 	 * アカウント設定画面<br>
 	 * @param model
-	 * @param seqCustomerId
+	 * @param request
 	 * @return 設定画面
 	 */
 	@RequestMapping(value = "/account-setting.html", method = RequestMethod.GET)
