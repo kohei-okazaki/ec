@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class EcLogger {
 
-	/** singeton */
+	/** singleton */
 	private static EcLogger instance = new EcLogger();
 
 	/**
