@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import jp.co.site.dao.DeliveryInfoSearchService;
 import jp.co.site.entity.DeliveryInfoEntity;
@@ -43,24 +44,20 @@ public class AccountSettingController {
 	/**
 	 * アカウント設定画面<br>
 	 * @param model
-	 * @param request
+	 * @param seqCustomerId
 	 * @return 設定画面
 	 */
 	@RequestMapping(value = "/account-setting.html", method = RequestMethod.GET)
-	public String accountSetting(Model model, HttpServletRequest request) {
+	public String accountSetting(Model model, @SessionAttribute String seqCustomerId) {
 
 		EcLogger.getInstance().info(this.getClass(), " # accountSetting");
 
-		// セッションから顧客IDを取得
-		HttpSession session = request.getSession();
-		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-
 		// ログインユーザ情報を取得
-		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(customerId);
+		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(seqCustomerId);
 		model.addAttribute("loginUser", loginUserentity);
 
 		// 配送先情報を取得
-		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(customerId);
+		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(seqCustomerId);
 		model.addAttribute("deliveryInfo", deliveryInfoEntity);
 
 		model.addAttribute("regDate", DateUtil.getConvertDate(deliveryInfoEntity.getRegDate()));
