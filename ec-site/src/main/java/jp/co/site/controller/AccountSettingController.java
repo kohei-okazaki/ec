@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import jp.co.site.dao.DeliveryInfoSearchService;
 import jp.co.site.entity.DeliveryInfoEntity;
@@ -48,9 +47,13 @@ public class AccountSettingController {
 	 * @return 設定画面
 	 */
 	@RequestMapping(value = "/account-setting.html", method = RequestMethod.GET)
-	public String accountSetting(Model model, @SessionAttribute String seqCustomerId) {
+	public String accountSetting(Model model, HttpServletRequest request) {
 
 		EcLogger.getInstance().info(this.getClass(), " # accountSetting");
+
+		// sessionから顧客IDを取得
+		HttpSession session = request.getSession();
+		String seqCustomerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
 		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(seqCustomerId);
