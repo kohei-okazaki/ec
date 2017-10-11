@@ -27,7 +27,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * 区切りたい文字列を区切り文字で、区切ったリストを返す
+	 * 区切りたい文字列を区切り文字で、区切ったリストを返す<br>
 	 * @param target
 	 * @param delim
 	 * @return result
@@ -48,7 +48,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * 空文字かどうか判定する
+	 * 空文字かどうか判定する<br>
 	 * @param target
 	 * @return 判定結果
 	 */
@@ -65,6 +65,25 @@ public class StringUtil {
 	 */
 	public static boolean isEquals(String target1, String target2) {
 		return target1.equals(target2);
+	}
+
+	/**
+	 * 指定した文字列が最小・最大値に含まれるかどうか判定<br>
+	 * @param target 指定した文字列
+	 * @param min 最小値
+	 * @param max 最大値
+	 * @param isSame <=でチェックしたい場合はtrue, <でチェックしたい場合はfalse
+	 * @return 含まれる場合true, 含まれない場合falseを返す
+	 */
+	public static boolean checkLength(String target, int min, int max, boolean isSame) {
+		if (Objects.isNull(target) || min == max) {
+			return false;
+		}
+		if (isSame) {
+			return min <= target.length() && target.length() <= max;
+		} else {
+			return min < target.length() && target.length() < max;
+		}
 	}
 
 }
