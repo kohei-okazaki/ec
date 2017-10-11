@@ -28,23 +28,27 @@ public class StringUtil {
 
 	/**
 	 * 区切りたい文字列を区切り文字で、区切ったリストを返す<br>
+	 * 区切り文字がない場合、1文字ずつ区切ったリストを返す<br>
 	 * @param target
 	 * @param delim
 	 * @return result
 	 */
 	public static List<String> toStrList(String target, String delim) {
-
-		if (Objects.isNull(target) || EMPTY.equals(target)) {
+		if (Objects.isNull(target) || Objects.isNull(delim)) {
 			return null;
 		}
 		List<String> result = new ArrayList<String>();
-		StringTokenizer tokenizer = new StringTokenizer(target, COMMA);
-
-		while (tokenizer.hasMoreTokens()) {
-			result.add(tokenizer.nextToken().trim());
+		if (EMPTY.equals(delim)) {
+			for (int i = 0; i < target.length(); i++) {
+				result.add(target.substring(i, i + 1));
+			}
+		} else {
+			StringTokenizer tokenizer = new StringTokenizer(target, delim);
+			while (tokenizer.hasMoreTokens()) {
+				result.add(tokenizer.nextToken().trim());
+			}
 		}
 		return result;
-
 	}
 
 	/**
