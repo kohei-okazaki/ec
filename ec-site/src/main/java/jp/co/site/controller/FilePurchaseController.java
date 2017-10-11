@@ -4,8 +4,6 @@ import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import jp.co.site.form.FilePurchaseForm;
+import jp.co.site.log.EcLogger;
 import jp.co.site.service.FilePurchaseService;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
@@ -33,8 +32,6 @@ public class FilePurchaseController {
 	@Autowired
 	private FilePurchaseService filePurchaseService;
 
-	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
 	@ModelAttribute
 	public FilePurchaseForm getFilePurchaseForm() {
 		return filePurchaseService.getFilePurchaseForm();
@@ -48,7 +45,7 @@ public class FilePurchaseController {
 	@RequestMapping(value = "/purchase-file.html", method = RequestMethod.GET)
 	public String fileInput(Model model) {
 
-		LOG.info(this.getClass().getSimpleName() + "#fileInput");
+		EcLogger.getInstance().info(this.getClass(), " # fileInput");
 
 		model.addAttribute("page", PageView.INPUT.getName());
 
@@ -72,10 +69,10 @@ public class FilePurchaseController {
 							, HttpServletRequest request
 							, @RequestParam(value = "file", required = true) MultipartFile file) {
 
-		LOG.info(this.getClass().getSimpleName() + "#fileConfirm");
+		EcLogger.getInstance().info(this.getClass(), " # fileConfirm");
 
 		if (file.isEmpty()) {
-			LOG.warn("ファイルが空です");
+			EcLogger.getInstance().warn(this.getClass(), "ファイルが空です");
 			return View.PURCHASE_FILE.getName();
 		}
 

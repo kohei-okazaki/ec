@@ -3,8 +3,6 @@ package jp.co.site.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +13,7 @@ import jp.co.site.dao.DeliveryInfoSearchService;
 import jp.co.site.entity.DeliveryInfoEntity;
 import jp.co.site.entity.LoginUserEntity;
 import jp.co.site.form.AccountSettingForm;
+import jp.co.site.log.EcLogger;
 import jp.co.site.service.AccountSearchService;
 import jp.co.site.service.AccountSettingService;
 import jp.co.site.util.DateUtil;
@@ -41,8 +40,6 @@ public class AccountSettingController {
 	@Autowired
 	private AccountSettingService accountSettingService;
 
-	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
 	/**
 	 * アカウント設定画面<br>
 	 * @param model
@@ -52,18 +49,18 @@ public class AccountSettingController {
 	@RequestMapping(value = "/account-setting.html", method = RequestMethod.GET)
 	public String accountSetting(Model model, HttpServletRequest request) {
 
-		LOG.info(this.getClass().getSimpleName() + "#accountSetting");
+		EcLogger.getInstance().info(this.getClass(), " # accountSetting");
 
-		// セッションから顧客IDを取得
+		// sessionから顧客IDを取得
 		HttpSession session = request.getSession();
-		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
+		String seqCustomerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
-		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(customerId);
+		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(seqCustomerId);
 		model.addAttribute("loginUser", loginUserentity);
 
 		// 配送先情報を取得
-		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(customerId);
+		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(seqCustomerId);
 		model.addAttribute("deliveryInfo", deliveryInfoEntity);
 
 		model.addAttribute("regDate", DateUtil.getConvertDate(deliveryInfoEntity.getRegDate()));
@@ -82,7 +79,7 @@ public class AccountSettingController {
 	@RequestMapping(value = "/account-setting-input.html", method = RequestMethod.GET)
 	public String input(Model model, HttpServletRequest request) {
 
-		LOG.info(this.getClass().getSimpleName() + "#accountSettingInput");
+		EcLogger.getInstance().info(this.getClass(), " # accountSettingInput");
 
 		// セッションから顧客IDを取得
 		HttpSession session = request.getSession();
@@ -111,7 +108,7 @@ public class AccountSettingController {
 	@RequestMapping(value = "/account-setting-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, HttpServletRequest request, AccountSettingForm form) {
 
-		LOG.info(this.getClass().getSimpleName() + "#accountsettingconfirm");
+		EcLogger.getInstance().info(this.getClass(), " # accountsettingconfirm");
 
 		if (accountSettingService.invalidForm(form)) {
 			// 入力情報に不正がある

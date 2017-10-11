@@ -1,7 +1,5 @@
 package jp.co.site.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.site.form.PurchaseForm;
+import jp.co.site.log.EcLogger;
 import jp.co.site.service.PurchaseService;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
@@ -25,8 +24,6 @@ public class PurchaseController {
 	@Autowired
 	private PurchaseService purchaseService;
 
-	private final Logger LOG = LoggerFactory.getLogger(this.getClass().getSimpleName());
-
 	/**
 	 * 購入画面
 	 * @param model
@@ -35,7 +32,7 @@ public class PurchaseController {
 	@RequestMapping(value = "/purchase.html", method = RequestMethod.GET)
 	public String purchase(Model model) {
 
-		LOG.info(this.getClass().getSimpleName() + "#purchase");
+		EcLogger.getInstance().info(this.getClass(), " # purchase");
 
 		model.addAttribute("page", PageView.INPUT.getName());
 
@@ -51,7 +48,7 @@ public class PurchaseController {
 	@RequestMapping(value = "/purchase-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, PurchaseForm form) {
 
-		LOG.info(this.getClass().getSimpleName() + "#confirm");
+		EcLogger.getInstance().info(this.getClass(), " # confirm");
 
 		if (purchaseService.checkPurchaseItem(form)) {
 			// 購入商品情報が不正であった場合
@@ -79,7 +76,7 @@ public class PurchaseController {
 	@RequestMapping(value = "/purchase-complete.html", method = RequestMethod.POST)
 	public String complete(Model model, PurchaseForm form) {
 
-		LOG.info(this.getClass().getSimpleName() + "#complete");
+		EcLogger.getInstance().info(this.getClass(), " # complete");
 
 		// 購入商品情報を登録する
 		purchaseService.registPurchaseItem(form);
