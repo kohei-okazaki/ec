@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.common.util.DateUtil;
 import jp.co.site.dao.DeliveryInfoSearchService;
 import jp.co.site.entity.DeliveryInfoEntity;
 import jp.co.site.entity.LoginUserEntity;
@@ -16,7 +17,6 @@ import jp.co.site.form.AccountSettingForm;
 import jp.co.site.log.EcLogger;
 import jp.co.site.service.AccountSearchService;
 import jp.co.site.service.AccountSettingService;
-import jp.co.site.util.DateUtil;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;

@@ -38,7 +38,7 @@ public class ExcelUtil {
 	 * @param clazz
 	 * @return cell名
 	 */
-	public static List<String> getCellList(Class<?> clazz) {
+	public static List<String> getHeaderList(Class<?> clazz) {
 		Excel excel = getExcelClass(clazz);
 		return Arrays.asList(excel.cellNames());
 	}
