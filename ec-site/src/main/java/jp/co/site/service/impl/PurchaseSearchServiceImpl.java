@@ -27,7 +27,7 @@ public class PurchaseSearchServiceImpl implements PurchaseSearchService {
 	 * @return 商品購入情報のリスト
 	 */
 	@Override
-	public List<PurchaseItemEntity> getPurchaseEntityByCustomerId(String customerId) {
+	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId) {
 		return dao.findPurchaseEntityByCustomerId(customerId);
 	}
 
