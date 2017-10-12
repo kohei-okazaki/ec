@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import jp.co.common.filter.BaseFilter;
 import jp.co.common.util.DateUtil;
 import jp.co.site.web.session.EcSiteSessionKey;
 import jp.co.site.web.session.EcsiteSessionManager;

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import jp.co.site.dao.PurchaseDao;
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 import jp.co.site.form.PurchaseForm;
 
 /**
@@ -23,30 +23,30 @@ public class PurchaseDaoImpl implements PurchaseDao {
 	 * @return 購入商品情報
 	 */
 	@Override
-	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId) {
+	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) {
 
-		List<PurchaseItemEntity> resultList = new ArrayList<PurchaseItemEntity>();
+		List<PurchaseItemDto> resultList = new ArrayList<PurchaseItemDto>();
 		for (int i = 0; i < 20; i++) {
-			PurchaseItemEntity entity = new PurchaseItemEntity();
-			entity.setSeqCustomerId(customerId);
+			PurchaseItemDto dto = new PurchaseItemDto();
+			dto.setSeqCustomerId(customerId);
 			if (i % 3 == 0) {
-				entity.setItemName("リンゴ");
-				entity.setItemPrice(200);
-				entity.setItemCount(3);
+				dto.setItemName("リンゴ");
+				dto.setItemPrice(200);
+				dto.setItemCount(3);
 			} else if (i % 8 == 0) {
-				entity.setItemName("ミカン");
-				entity.setItemPrice(350);
-				entity.setItemCount(1);
+				dto.setItemName("ミカン");
+				dto.setItemPrice(350);
+				dto.setItemCount(1);
 			} else if (i % 5 == 0) {
-				entity.setItemName("ブドウ");
-				entity.setItemPrice(1000);
-				entity.setItemCount(3);
+				dto.setItemName("ブドウ");
+				dto.setItemPrice(1000);
+				dto.setItemCount(3);
 			} else {
-				entity.setItemName("メロン");
-				entity.setItemPrice(3000);
-				entity.setItemCount(1);
+				dto.setItemName("メロン");
+				dto.setItemPrice(3000);
+				dto.setItemCount(1);
 			}
-			resultList.add(entity);
+			resultList.add(dto);
 		}
 		return resultList;
 	}

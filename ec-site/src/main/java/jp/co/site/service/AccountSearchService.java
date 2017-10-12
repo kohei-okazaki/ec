@@ -1,6 +1,6 @@
 package jp.co.site.service;
 
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.LoginUserDto;
 
 /**
  * @author kou1210hei<br>
@@ -14,5 +14,5 @@ public interface AccountSearchService {
 	 * @param customerId
 	 * @return ログインユーザ情報
 	 */
-	public LoginUserEntity findLoginUserByCustomerId(String customerId);
+	public LoginUserDto findLoginUserByCustomerId(String customerId);
 }

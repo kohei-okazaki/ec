@@ -1,4 +1,4 @@
-package jp.co.site.entity;
+package jp.co.site.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,13 +14,13 @@ import lombok.ToString;
 
 /**
  * @author kou1210hei<br>
- * ログインユーザのEntityクラス<br>
+ * 配送先情報のEntityクラス<br>
  *
  */
 @Entity
-@Table(name = "LOGIN_USER")
-@ToString(exclude = "password")
-public class LoginUserEntity implements Serializable {
+@ToString
+@Table(name = "DELIVERY_IMFO")
+public class DeliveryInfoDto implements Serializable {
 
 	@Id
 	@Setter
@@ -30,11 +30,22 @@ public class LoginUserEntity implements Serializable {
 
 	@Setter
 	@Getter
-	@Column(name = "PASSWORD")
-	private String password;
+	@Column(name = "PREFECTURES")
+	private String prefectures;
+
+	@Setter
+	@Getter
+	@Column(name = "CITY")
+	private String city;
+
+	@Setter
+	@Getter
+	@Column(name = "ADDRESS")
+	private String address;
 
 	@Setter
 	@Getter
 	@Column(name = "REG_DATE")
 	private Date regDate;
+
 }

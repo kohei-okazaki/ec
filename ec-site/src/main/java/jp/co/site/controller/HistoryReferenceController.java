@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 import jp.co.site.log.EcLogger;
 import jp.co.site.service.FileDownloadService;
 import jp.co.site.service.PurchaseSearchService;
@@ -49,7 +49,7 @@ public class HistoryReferenceController {
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
 		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-		List<PurchaseItemEntity> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
+		List<PurchaseItemDto> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
 
 		model.addAttribute("resultList", resultList);
 
@@ -70,7 +70,7 @@ public class HistoryReferenceController {
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
 		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-		List<PurchaseItemEntity> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
+		List<PurchaseItemDto> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
 
 		return new ModelAndView(downloadService.execute(resultList));
 	}

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.common.util.DateUtil;
-import jp.co.site.entity.DeliveryInfoEntity;
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.DeliveryInfoDto;
+import jp.co.site.dto.LoginUserDto;
 import jp.co.site.form.AccountSettingForm;
 import jp.co.site.log.EcLogger;
 import jp.co.site.service.AccountSearchService;
@@ -56,14 +56,14 @@ public class AccountSettingController {
 		String seqCustomerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
-		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(seqCustomerId);
-		model.addAttribute("loginUser", loginUserentity);
+		LoginUserDto loginUserDto = accountSearchService.findLoginUserByCustomerId(seqCustomerId);
+		model.addAttribute("loginUser", loginUserDto);
 
 		// 配送先情報を取得
-		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(seqCustomerId);
-		model.addAttribute("deliveryInfo", deliveryInfoEntity);
+		DeliveryInfoDto deliveryInfoDto = deliveryInfoSearchService.findDeliveryInfoByCustomerId(seqCustomerId);
+		model.addAttribute("deliveryInfo", deliveryInfoDto);
 
-		model.addAttribute("regDate", DateUtil.getConvertDate(deliveryInfoEntity.getRegDate()));
+		model.addAttribute("regDate", DateUtil.getConvertDate(deliveryInfoDto.getRegDate()));
 
 		model.addAttribute("page", PageView.DETAIL.getName());
 
@@ -86,12 +86,12 @@ public class AccountSettingController {
 		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
-		LoginUserEntity loginUserentity = accountSearchService.findLoginUserByCustomerId(customerId);
-		model.addAttribute("loginUser", loginUserentity);
+		LoginUserDto loginUserDto = accountSearchService.findLoginUserByCustomerId(customerId);
+		model.addAttribute("loginUser", loginUserDto);
 
 		// 配送先情報を取得
-		DeliveryInfoEntity deliveryInfoEntity = deliveryInfoSearchService.findDeliveryInfoByCustomerId(customerId);
-		model.addAttribute("deliveryInfo", deliveryInfoEntity);
+		DeliveryInfoDto deliveryInfoDto = deliveryInfoSearchService.findDeliveryInfoByCustomerId(customerId);
+		model.addAttribute("deliveryInfo", deliveryInfoDto);
 
 		model.addAttribute("page", PageView.INPUT.getName());
 

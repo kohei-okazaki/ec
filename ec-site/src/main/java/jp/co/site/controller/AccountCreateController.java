@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.LoginUserDto;
 import jp.co.site.form.AccountCreateForm;
 import jp.co.site.log.EcLogger;
 import jp.co.site.service.AccountCreateService;
@@ -75,9 +75,9 @@ public class AccountCreateController {
 
 		EcLogger.getInstance().info(this.getClass(), " # complete");
 
-		LoginUserEntity loginUserEntity = accountCreateService.createLoginUser(form);
-		model.addAttribute("customerId", loginUserEntity.getSeqCustomerId());
-		model.addAttribute("password", loginUserEntity.getPassword());
+		LoginUserDto loginUserDto = accountCreateService.createLoginUser(form);
+		model.addAttribute("customerId", loginUserDto.getSeqCustomerId());
+		model.addAttribute("password", loginUserDto.getPassword());
 		model.addAttribute("page", PageView.COMPLETE.getName());
 
 		return View.ACCOUNT_CREATE.getName();

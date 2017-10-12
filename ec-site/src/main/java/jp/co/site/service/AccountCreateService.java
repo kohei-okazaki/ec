@@ -1,6 +1,6 @@
 package jp.co.site.service;
 
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.LoginUserDto;
 import jp.co.site.form.AccountCreateForm;
 
 /**
@@ -22,5 +22,5 @@ public interface AccountCreateService {
 	 * @param form
 	 * @return LoginUserEntity
 	 */
-	public LoginUserEntity createLoginUser(AccountCreateForm form);
+	public LoginUserDto createLoginUser(AccountCreateForm form);
 }

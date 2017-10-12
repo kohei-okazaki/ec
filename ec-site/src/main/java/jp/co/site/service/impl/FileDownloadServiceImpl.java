@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.View;
 
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 import jp.co.site.excel.HistoryExcelBuilder;
 import jp.co.site.service.FileDownloadService;
 
@@ -23,7 +23,7 @@ public class FileDownloadServiceImpl implements FileDownloadService {
 	 * @return view
 	 */
 	@Override
-	public View execute(List<PurchaseItemEntity> list) {
+	public View execute(List<PurchaseItemDto> list) {
 		return new HistoryExcelBuilder(list);
 	}
 
