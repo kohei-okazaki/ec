@@ -1,11 +1,11 @@
-package jp.co.site.dao.impl;
+package jp.co.site.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.site.dao.DeliveryInfoDao;
-import jp.co.site.dao.DeliveryInfoSearchService;
 import jp.co.site.entity.DeliveryInfoEntity;
+import jp.co.site.service.DeliveryInfoSearchService;
 
 /**
  * @author kou1210hei<br>

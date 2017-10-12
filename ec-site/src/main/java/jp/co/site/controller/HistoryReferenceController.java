@@ -49,7 +49,7 @@ public class HistoryReferenceController {
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
 		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-		List<PurchaseItemEntity> resultList = purchaseSearchService.getPurchaseEntityByCustomerId(customerId);
+		List<PurchaseItemEntity> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
 
 		model.addAttribute("resultList", resultList);
 
@@ -70,7 +70,7 @@ public class HistoryReferenceController {
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
 		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-		List<PurchaseItemEntity> resultList = purchaseSearchService.getPurchaseEntityByCustomerId(customerId);
+		List<PurchaseItemEntity> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
 
 		return new ModelAndView(downloadService.execute(resultList));
 	}

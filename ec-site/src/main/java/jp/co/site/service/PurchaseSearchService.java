@@ -16,5 +16,5 @@ public interface PurchaseSearchService {
 	 * @param customerId
 	 * @return 商品購入情報のリスト
 	 */
-	public List<PurchaseItemEntity> getPurchaseEntityByCustomerId(String customerId);
+	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId);
 }

@@ -1,4 +1,4 @@
-package jp.co.site.dao;
+package jp.co.site.service;
 
 import jp.co.site.entity.DeliveryInfoEntity;
 
