@@ -1,9 +1,10 @@
 package jp.co.site.log;
 
+import jp.co.common.log.BaseLogger;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class EcLogger {
+public class EcLogger extends BaseLogger {
 
 	/** singleton */
 	private static EcLogger instance = new EcLogger();
@@ -20,6 +21,7 @@ public class EcLogger {
 	 * infologを出力
 	 * @param clazz
 	 */
+	@Override
 	public void info(Class<?> clazz) {
 		log.info("実行 -----> " + clazz.getSimpleName());
 	}
@@ -28,6 +30,7 @@ public class EcLogger {
 	 * debuglogを出力
 	 * @param clazz
 	 */
+	@Override
 	public void debug(Class<?> clazz) {
 		log.info("実行 -----> " + clazz.getSimpleName());
 	}
@@ -36,6 +39,7 @@ public class EcLogger {
 	 * errorlogを出力
 	 * @param clazz
 	 */
+	@Override
 	public void error(Class<?> clazz) {
 		log.info("実行 -----> " + clazz.getSimpleName());
 	}
@@ -44,6 +48,7 @@ public class EcLogger {
 	 * warnlogを出力
 	 * @param clazz
 	 */
+	@Override
 	public void warn(Class<?> clazz) {
 		log.info("実行 -----> " + clazz.getSimpleName());
 	}
@@ -54,6 +59,7 @@ public class EcLogger {
 	 * @param clazz
 	 * @param message
 	 */
+	@Override
 	public void info(Class<?> clazz, String message) {
 		log.info("実行 -----> " + clazz.getSimpleName(), message);
 	}
@@ -63,6 +69,7 @@ public class EcLogger {
 	 * @param clazz
 	 * @param message
 	 */
+	@Override
 	public void debug(Class<?> clazz, String message) {
 		log.info("実行 -----> " + clazz.getSimpleName(), message);
 	}
@@ -72,6 +79,7 @@ public class EcLogger {
 	 * @param clazz
 	 * @param message
 	 */
+	@Override
 	public void error(Class<?> clazz, String message) {
 		log.info("実行 -----> " + clazz.getSimpleName(), message);
 	}
@@ -81,6 +89,7 @@ public class EcLogger {
 	 * @param clazz
 	 * @param message
 	 */
+	@Override
 	public void warn(Class<?> clazz, String message) {
 		log.info("実行 -----> " + clazz.getSimpleName(), message);
 	}
