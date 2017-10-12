@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import jp.co.site.dao.LoginUserDao;
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.LoginUserDto;
 
 /**
  * @author kou1210hei<br>
@@ -23,21 +23,21 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	 * @return ログインユーザ情報
 	 */
 	@Override
-	public LoginUserEntity createLoginUser(String password) {
-		LoginUserEntity entity = new LoginUserEntity();
-		entity.setSeqCustomerId("master");
-		entity.setPassword(password);
-		entity.setRegDate(new Date());
-		return entity;
+	public LoginUserDto createLoginUser(String password) {
+		LoginUserDto dto = new LoginUserDto();
+		dto.setSeqCustomerId("master");
+		dto.setPassword(password);
+		dto.setRegDate(new Date());
+		return dto;
 	}
 
 	/**
 	 * ログインユーザを更新する<br>
-	 * @param entity
+	 * @param dto
 	 */
 	@Override
-	public void updateLoginUser(LoginUserEntity entity) {
-
+	public void updateLoginUser(LoginUserDto dto) {
+		// TODO 更新処理を追加
 	}
 
 	/**
@@ -45,24 +45,24 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	 * @return 検索結果
 	 */
 	@Override
-	public List<LoginUserEntity> getAllDate() {
-		List<LoginUserEntity> resultList = new ArrayList<LoginUserEntity>();
+	public List<LoginUserDto> getAllDate() {
+		List<LoginUserDto> resultList = new ArrayList<LoginUserDto>();
 		for (int i = 0; i < 15; i++) {
-			LoginUserEntity entity = new LoginUserEntity();
+			LoginUserDto dto = new LoginUserDto();
 			if (i % 3 == 0) {
-				entity.setSeqCustomerId("test001");
-				entity.setPassword("pass1");
-				entity.setRegDate(new Date());
+				dto.setSeqCustomerId("test001");
+				dto.setPassword("pass1");
+				dto.setRegDate(new Date());
 			} else if (i % 4 == 0) {
-				entity.setSeqCustomerId("test002");
-				entity.setPassword("pass2");
-				entity.setRegDate(new Date());
+				dto.setSeqCustomerId("test002");
+				dto.setPassword("pass2");
+				dto.setRegDate(new Date());
 			} else if (i % 7 == 0) {
-				entity.setSeqCustomerId("test003");
-				entity.setPassword("pass3");
-				entity.setRegDate(new Date());
+				dto.setSeqCustomerId("test003");
+				dto.setPassword("pass3");
+				dto.setRegDate(new Date());
 			}
-			resultList.add(entity);
+			resultList.add(dto);
 		}
 		return resultList;
 	}
@@ -73,13 +73,13 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	 * @return ログインユーザ情報
 	 */
 	@Override
-	public LoginUserEntity getLoginUserByCustomerId(String customerId) {
+	public LoginUserDto getLoginUserByCustomerId(String customerId) {
 		// FIXME
-		LoginUserEntity entity = new LoginUserEntity();
-		entity.setSeqCustomerId(customerId);
-		entity.setPassword("password");
-		entity.setRegDate(new Date());
-		return entity;
+		LoginUserDto dto = new LoginUserDto();
+		dto.setSeqCustomerId(customerId);
+		dto.setPassword("password");
+		dto.setRegDate(new Date());
+		return dto;
 	}
 
 }

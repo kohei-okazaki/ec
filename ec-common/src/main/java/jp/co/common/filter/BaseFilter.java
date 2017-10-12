@@ -1,4 +1,4 @@
-package jp.co.site.web.filter;
+package jp.co.common.filter;
 
 import java.io.IOException;
 

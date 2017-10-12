@@ -14,7 +14,7 @@ import jp.co.common.excel.BaseExcelBuilder;
 import jp.co.common.other.Charset;
 import jp.co.common.other.Excel;
 import jp.co.common.util.ExcelUtil;
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 
 /**
  * @author kou1210hei<br>
@@ -25,13 +25,13 @@ import jp.co.site.entity.PurchaseItemEntity;
 public class HistoryExcelBuilder extends BaseExcelBuilder {
 
 	/** 購入商品リスト */
-	private List<PurchaseItemEntity> purchaseList;
+	private List<PurchaseItemDto> purchaseList;
 
 	/**
 	 * コンストラクタ<br>
 	 * @param purchaseList
 	 */
-	public HistoryExcelBuilder(List<PurchaseItemEntity> purchaseList) {
+	public HistoryExcelBuilder(List<PurchaseItemDto> purchaseList) {
 		this.purchaseList = purchaseList;
 	}
 

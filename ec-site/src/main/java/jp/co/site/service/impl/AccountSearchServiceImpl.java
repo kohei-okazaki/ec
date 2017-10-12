@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.site.dao.LoginUserDao;
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.LoginUserDto;
 import jp.co.site.service.AccountSearchService;
 
 /**
@@ -25,7 +25,7 @@ public class AccountSearchServiceImpl implements AccountSearchService {
 	 * @return ログインユーザ情報
 	 */
 	@Override
-	public LoginUserEntity findLoginUserByCustomerId(String customerId) {
+	public LoginUserDto findLoginUserByCustomerId(String customerId) {
 		return dao.getLoginUserByCustomerId(customerId);
 	}
 

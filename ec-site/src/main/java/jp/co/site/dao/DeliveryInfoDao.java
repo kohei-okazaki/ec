@@ -1,6 +1,6 @@
 package jp.co.site.dao;
 
-import jp.co.site.entity.DeliveryInfoEntity;
+import jp.co.site.dto.DeliveryInfoDto;
 
 /**
  * @author kou1210hei<br>
@@ -14,18 +14,18 @@ public interface DeliveryInfoDao {
 	 * @param customerId
 	 * @return 配送先情報
 	 */
-	public DeliveryInfoEntity createDeliveryInfo(String customerId);
+	public DeliveryInfoDto createDeliveryInfo(String customerId);
 
 	/**
 	 * 配送先情報を更新する<br>
-	 * @param deliveryInfoEntity
+	 * @param dto
 	 */
-	public void updateDeliveryInfo(DeliveryInfoEntity deliveryInfoEntity);
+	public void updateDeliveryInfo(DeliveryInfoDto dto);
 
 	/**
 	 * 顧客IDに紐づく配送先情報を取得<br>
 	 * @param customerId
 	 * @return 配送先情報
 	 */
-	public DeliveryInfoEntity getDeliveryInfoByCustomerId(String customerId);
+	public DeliveryInfoDto getDeliveryInfoByCustomerId(String customerId);
 }

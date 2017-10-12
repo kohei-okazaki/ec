@@ -2,7 +2,7 @@ package jp.co.site.dao;
 
 import java.util.List;
 
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 import jp.co.site.form.PurchaseForm;
 
 /**
@@ -17,7 +17,7 @@ public interface PurchaseDao {
 	 * @param customerId
 	 * @return 購入商品情報
 	 */
-	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId);
+	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId);
 
 	/**
 	 * 購入商品情報を登録する<br>

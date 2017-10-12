@@ -2,7 +2,7 @@ package jp.co.site.dao;
 
 import java.util.List;
 
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.LoginUserDto;
 
 /**
  * @author kou1210hei<br>
@@ -16,25 +16,25 @@ public interface LoginUserDao {
 	 * @param password
 	 * @return ログインユーザ情報
 	 */
-	public LoginUserEntity createLoginUser(String password);
+	public LoginUserDto createLoginUser(String password);
 
 	/**
 	 * ログインユーザを更新する<br>
-	 * @param entity
+	 * @param dto
 	 */
-	public void updateLoginUser(LoginUserEntity entity);
+	public void updateLoginUser(LoginUserDto dto);
 
 	/**
 	 * ログインユーザを全部検索する<br>
 	 * @return ログインユーザ情報
 	 */
-	public List<LoginUserEntity> getAllDate();
+	public List<LoginUserDto> getAllDate();
 
 	/**
 	 * 顧客IDからログインユーザを検索する<br>
 	 * @param customerId
 	 * @return ログインユーザ情報
 	 */
-	public LoginUserEntity getLoginUserByCustomerId(String customerId);
+	public LoginUserDto getLoginUserByCustomerId(String customerId);
 
 }

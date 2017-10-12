@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.site.dao.DeliveryInfoDao;
-import jp.co.site.entity.DeliveryInfoEntity;
+import jp.co.site.dto.DeliveryInfoDto;
 import jp.co.site.service.DeliveryInfoSearchService;
 
 /**
@@ -25,7 +25,7 @@ public class DeliveryInfoSearchServiceImpl implements DeliveryInfoSearchService 
 	 * @return 配送先情報
 	 */
 	@Override
-	public DeliveryInfoEntity findDeliveryInfoByCustomerId(String customerId) {
+	public DeliveryInfoDto findDeliveryInfoByCustomerId(String customerId) {
 		return deliveryInfoDao.getDeliveryInfoByCustomerId(customerId);
 	}
 

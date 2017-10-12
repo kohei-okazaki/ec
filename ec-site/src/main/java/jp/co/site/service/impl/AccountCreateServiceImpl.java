@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import jp.co.common.util.StringUtil;
 import jp.co.site.dao.LoginUserDao;
-import jp.co.site.entity.LoginUserEntity;
+import jp.co.site.dto.LoginUserDto;
 import jp.co.site.form.AccountCreateForm;
 import jp.co.site.service.AccountCreateService;
 
@@ -45,7 +45,7 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 	 * @return LoginUserEntity
 	 */
 	@Override
-	public LoginUserEntity createLoginUser(AccountCreateForm form) {
+	public LoginUserDto createLoginUser(AccountCreateForm form) {
 		return dao.createLoginUser(form.getPassword());
 	}
 

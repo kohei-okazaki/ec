@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.web.servlet.View;
 
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 
 /**
  * @author kou1210hei<br>
@@ -18,5 +18,5 @@ public interface FileDownloadService {
 	 * @param list
 	 * @return view
 	 */
-	public View execute(List<PurchaseItemEntity> list);
+	public View execute(List<PurchaseItemDto> list);
 }

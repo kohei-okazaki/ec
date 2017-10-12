@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.stereotype.Repository;
 
 import jp.co.site.dao.DeliveryInfoDao;
-import jp.co.site.entity.DeliveryInfoEntity;
+import jp.co.site.dto.DeliveryInfoDto;
 
 @Repository
 public class DeliveryInfoDaoImpl implements DeliveryInfoDao {
@@ -16,22 +16,22 @@ public class DeliveryInfoDaoImpl implements DeliveryInfoDao {
 	 * @return 配送先情報
 	 */
 	@Override
-	public DeliveryInfoEntity createDeliveryInfo(String customerId) {
-		DeliveryInfoEntity entity = new DeliveryInfoEntity();
-		entity.setSeqCustomerId(customerId);
-		entity.setPrefectures("東京都");
-		entity.setCity("渋谷区");
-		entity.setAddress("渋谷");
-		entity.setRegDate(new Date());
-		return entity;
+	public DeliveryInfoDto createDeliveryInfo(String customerId) {
+		DeliveryInfoDto dto = new DeliveryInfoDto();
+		dto.setSeqCustomerId(customerId);
+		dto.setPrefectures("東京都");
+		dto.setCity("渋谷区");
+		dto.setAddress("渋谷");
+		dto.setRegDate(new Date());
+		return dto;
 	}
 
 	/**
 	 * 配送先情報を更新する<br>
-	 * @param deliveryInfoEntity
+	 * @param dto
 	 */
 	@Override
-	public void updateDeliveryInfo(DeliveryInfoEntity deliveryInfoEntity) {
+	public void updateDeliveryInfo(DeliveryInfoDto dto) {
 
 	}
 
@@ -41,15 +41,15 @@ public class DeliveryInfoDaoImpl implements DeliveryInfoDao {
 	 * @return 配送先情報
 	 */
 	@Override
-	public DeliveryInfoEntity getDeliveryInfoByCustomerId(String customerId) {
+	public DeliveryInfoDto getDeliveryInfoByCustomerId(String customerId) {
 		// FIXME
-		DeliveryInfoEntity entity = new DeliveryInfoEntity();
-		entity.setSeqCustomerId(customerId);
-		entity.setPrefectures("千葉県");
-		entity.setCity("松戸市");
-		entity.setAddress("松戸");
-		entity.setRegDate(new Date());
-		return entity;
+		DeliveryInfoDto dto = new DeliveryInfoDto();
+		dto.setSeqCustomerId(customerId);
+		dto.setPrefectures("千葉県");
+		dto.setCity("松戸市");
+		dto.setAddress("松戸");
+		dto.setRegDate(new Date());
+		return dto;
 	}
 
 }

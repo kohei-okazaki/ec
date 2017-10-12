@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jp.co.site.dao.PurchaseDao;
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 import jp.co.site.service.PurchaseSearchService;
 
 /**
@@ -27,7 +27,7 @@ public class PurchaseSearchServiceImpl implements PurchaseSearchService {
 	 * @return 商品購入情報のリスト
 	 */
 	@Override
-	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId) {
+	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) {
 		return dao.findPurchaseEntityByCustomerId(customerId);
 	}
 

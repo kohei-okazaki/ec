@@ -1,4 +1,4 @@
-package jp.co.site.entity;
+package jp.co.site.dto;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,7 +20,7 @@ import lombok.ToString;
 @Entity
 @ToString
 @Table(name = "PURCHASE_ITEM_INFO")
-public class PurchaseItemEntity implements Serializable {
+public class PurchaseItemDto implements Serializable {
 
 	@Id
 	@Setter

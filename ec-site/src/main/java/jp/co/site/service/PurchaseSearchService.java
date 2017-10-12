@@ -2,7 +2,7 @@ package jp.co.site.service;
 
 import java.util.List;
 
-import jp.co.site.entity.PurchaseItemEntity;
+import jp.co.site.dto.PurchaseItemDto;
 
 /**
  * @author kou1210hei<br>
@@ -16,5 +16,5 @@ public interface PurchaseSearchService {
 	 * @param customerId
 	 * @return 商品購入情報のリスト
 	 */
-	public List<PurchaseItemEntity> findPurchaseEntityByCustomerId(String customerId);
+	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId);
 }
