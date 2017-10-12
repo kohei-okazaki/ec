@@ -4,7 +4,7 @@ import java.util.Objects;
 
 import javax.servlet.http.HttpSession;
 
-import jp.co.site.util.StringUtil;
+import jp.co.common.util.StringUtil;
 
 /**
  * @author kou1210hei<br>
