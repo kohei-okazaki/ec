@@ -18,13 +18,13 @@ public @interface Excel {
 
 	/**
 	 * シート名
-	 * @return
+	 * @return sheetName
 	 */
 	String sheetName();
 
 	/**
 	 * セル名
-	 * @return
+	 * @return cellName
 	 */
 	String[] cellNames();
 
