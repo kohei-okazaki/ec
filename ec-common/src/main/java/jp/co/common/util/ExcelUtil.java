@@ -2,6 +2,7 @@ package jp.co.common.util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -29,8 +30,7 @@ public class ExcelUtil {
 	 * @return シート名
 	 */
 	public static String getSheetName(Class<?> clazz) {
-		Excel excel = getExcelClass(clazz);
-		return excel.sheetName();
+		return getExcelClass(clazz).sheetName();
 	}
 
 	/**
@@ -39,12 +39,11 @@ public class ExcelUtil {
 	 * @return cell名
 	 */
 	public static List<String> getHeaderList(Class<?> clazz) {
-		Excel excel = getExcelClass(clazz);
-		return Arrays.asList(excel.cellNames());
+		return Arrays.asList(getExcelClass(clazz).cellNames());
 	}
 
 	/**
-	 * 指定されたクラス型のExcelアノテーションを返す<br>
+	 * 指定されたクラスつけたExcelアノテーションを返す<br>
 	 * @param clazz
 	 * @return
 	 */
@@ -61,11 +60,11 @@ public class ExcelUtil {
 	 */
 	public static Cell getCell(Sheet sheet, int row, int col) {
 		Row sheetRow = sheet.getRow(row);
-		if (sheetRow == null) {
+		if (Objects.isNull(sheetRow)) {
 			sheetRow = sheet.createRow(row);
 		}
 		Cell cell = sheetRow.getCell(col);
-		if (cell == null) {
+		if (Objects.isNull(cell)) {
 			cell = sheetRow.createCell(col);
 		}
 		return cell;
