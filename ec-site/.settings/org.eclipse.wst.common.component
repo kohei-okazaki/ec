@@ -4,7 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="ec-common-0.0.1-SNAPSHOT.war" deploy-path="/WEB-INF/lib" handle="module:/resource/ec-common/ec-common">
+        <dependent-module archiveName="ec-common-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/ec-common/ec-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="ec-site"/>
