@@ -8,10 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import jp.co.site.log.EcLogger;
+import jp.co.site.log.EcSiteLogger;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
-import jp.co.site.web.session.EcsiteSessionManager;
+import jp.co.site.web.session.EcSiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -31,10 +31,10 @@ public class LoginController {
 	@RequestMapping(value = "/login.html", method = RequestMethod.GET)
 	public String login(Model model, HttpServletRequest request) {
 
-		EcLogger.getInstance().info(this.getClass(), " # login");
+		EcSiteLogger.getInstance().info(this.getClass(), " # login");
 
 		HttpSession session = request.getSession();
-		EcsiteSessionManager.getInstance().removeKey(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
+		EcSiteSessionManager.getInstance().removeKey(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		return View.LOGIN.getName();
 	}
 

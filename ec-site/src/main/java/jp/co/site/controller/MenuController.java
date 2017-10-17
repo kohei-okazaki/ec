@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.site.form.LoginForm;
-import jp.co.site.log.EcLogger;
+import jp.co.site.log.EcSiteLogger;
 import jp.co.site.service.LoginService;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
-import jp.co.site.web.session.EcsiteSessionManager;
+import jp.co.site.web.session.EcSiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -39,14 +39,14 @@ public class MenuController {
 	@RequestMapping(value = "/menu.html", method = RequestMethod.POST)
 	public String menu(LoginForm form, Model model, HttpServletRequest request) {
 
-		EcLogger.getInstance().info(this.getClass(), " # menu");
+		EcSiteLogger.getInstance().info(this.getClass(), " # menu");
 
 		if (loginService.misMatch(form)) {
 			return View.LOGIN.getName();
 		}
 
 		HttpSession session = request.getSession();
-		EcsiteSessionManager manager = EcsiteSessionManager.getInstance();
+		EcSiteSessionManager manager = EcSiteSessionManager.getInstance();
 		manager.setAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID, form.getCustomerId());
 		manager.setAttribute(session, EcSiteSessionKey.PASSWORD, form.getPassword());
 
@@ -62,7 +62,7 @@ public class MenuController {
 	@RequestMapping(value = "/menu.html", method = RequestMethod.GET)
 	public String menu(Model model, HttpServletRequest request) {
 
-		EcLogger.getInstance().info(this.getClass(), " # menu");
+		EcSiteLogger.getInstance().info(this.getClass(), " # menu");
 
 		if (loginService.sessionCheck(request)) {
 			// セッション情報が不正の場合

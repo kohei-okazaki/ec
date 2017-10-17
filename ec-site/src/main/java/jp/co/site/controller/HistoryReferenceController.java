@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import jp.co.site.dto.PurchaseItemDto;
-import jp.co.site.log.EcLogger;
+import jp.co.site.log.EcSiteLogger;
 import jp.co.site.service.FileDownloadService;
 import jp.co.site.service.PurchaseSearchService;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
-import jp.co.site.web.session.EcsiteSessionManager;
+import jp.co.site.web.session.EcSiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -44,11 +44,11 @@ public class HistoryReferenceController {
 	@RequestMapping(value = "/history.html")
 	public String reference(Model model, HttpServletRequest request) {
 
-		EcLogger.getInstance().info(this.getClass(), " # reference");
+		EcSiteLogger.getInstance().info(this.getClass(), " # reference");
 
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
-		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
+		String customerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		List<PurchaseItemDto> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
 
 		model.addAttribute("resultList", resultList);
@@ -65,11 +65,11 @@ public class HistoryReferenceController {
 	@RequestMapping(value = "/history-download.html", method = RequestMethod.GET)
 	public ModelAndView excelDownload(Model model, HttpServletRequest request) {
 
-		EcLogger.getInstance().info(this.getClass(), " # excelDownload");
+		EcSiteLogger.getInstance().info(this.getClass(), " # excelDownload");
 
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
-		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
+		String customerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		List<PurchaseItemDto> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
 
 		return new ModelAndView(downloadService.execute(resultList));
