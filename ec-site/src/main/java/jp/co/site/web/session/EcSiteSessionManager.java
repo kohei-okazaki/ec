@@ -11,11 +11,15 @@ import jp.co.common.util.StringUtil;
  * ECサイトのsession管理クラス<br>
  *
  */
-public class EcsiteSessionManager {
+public class EcSiteSessionManager {
 
-	private static EcsiteSessionManager instance = new EcsiteSessionManager();
+	private static EcSiteSessionManager instance = new EcSiteSessionManager();
 
-	public static EcsiteSessionManager getInstance() {
+	// インスタンス生成を制限
+	private EcSiteSessionManager() {
+	}
+
+	public static EcSiteSessionManager getInstance() {
 		return instance;
 	}
 

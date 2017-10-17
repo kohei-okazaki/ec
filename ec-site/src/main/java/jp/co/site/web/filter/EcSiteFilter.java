@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import jp.co.common.filter.BaseFilter;
 import jp.co.common.util.DateUtil;
 import jp.co.site.web.session.EcSiteSessionKey;
-import jp.co.site.web.session.EcsiteSessionManager;
+import jp.co.site.web.session.EcSiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -51,7 +51,7 @@ public class EcSiteFilter extends BaseFilter {
 		System.out.println(request.getRequestURI() + " : " + DateUtil.getSystemDate());
 
 		HttpSession session = request.getSession();
-		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
+		String customerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 		System.out.println("customerId : " + customerId);
 		chain.doFilter(req, resp);
 	}

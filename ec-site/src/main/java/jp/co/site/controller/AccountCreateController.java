@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.site.dto.LoginUserDto;
 import jp.co.site.form.AccountCreateForm;
-import jp.co.site.log.EcLogger;
+import jp.co.site.log.EcSiteLogger;
 import jp.co.site.service.AccountCreateService;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
@@ -33,7 +33,7 @@ public class AccountCreateController {
 	@RequestMapping(value = "/account-create.html", method = RequestMethod.GET)
 	public String accountCreate(Model model) {
 
-		EcLogger.getInstance().info(this.getClass(), " # accountCreate");
+		EcSiteLogger.getInstance().info(this.getClass(), " # accountCreate");
 
 		model.addAttribute("page", PageView.INPUT.getName());
 
@@ -49,10 +49,10 @@ public class AccountCreateController {
 	@RequestMapping(value = "/account-create-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, AccountCreateForm form) {
 
-		EcLogger.getInstance().info(this.getClass(), " # confirm");
+		EcSiteLogger.getInstance().info(this.getClass(), " # confirm");
 
 		if (accountCreateService.invalidPassword(form)) {
-			EcLogger.getInstance().error(this.getClass(), "パスワードの入力が不正です。");
+			EcSiteLogger.getInstance().error(this.getClass(), "パスワードの入力が不正です。");
 			// パスワードの入力が不正の場合
 			model.addAttribute("page", PageView.INPUT.getName());
 			return View.ACCOUNT_CREATE.getName();
@@ -73,7 +73,7 @@ public class AccountCreateController {
 	@RequestMapping(value = "/account-create-complete.html", method = RequestMethod.POST)
 	public String complete(Model model, AccountCreateForm form) {
 
-		EcLogger.getInstance().info(this.getClass(), " # complete");
+		EcSiteLogger.getInstance().info(this.getClass(), " # complete");
 
 		LoginUserDto loginUserDto = accountCreateService.createLoginUser(form);
 		model.addAttribute("customerId", loginUserDto.getSeqCustomerId());

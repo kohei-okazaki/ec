@@ -13,14 +13,14 @@ import jp.co.common.util.DateUtil;
 import jp.co.site.dto.DeliveryInfoDto;
 import jp.co.site.dto.LoginUserDto;
 import jp.co.site.form.AccountSettingForm;
-import jp.co.site.log.EcLogger;
+import jp.co.site.log.EcSiteLogger;
 import jp.co.site.service.AccountSearchService;
 import jp.co.site.service.AccountSettingService;
 import jp.co.site.service.DeliveryInfoSearchService;
 import jp.co.site.view.PageView;
 import jp.co.site.view.View;
 import jp.co.site.web.session.EcSiteSessionKey;
-import jp.co.site.web.session.EcsiteSessionManager;
+import jp.co.site.web.session.EcSiteSessionManager;
 
 /**
  * @author kou1210hei<br>
@@ -49,11 +49,11 @@ public class AccountSettingController {
 	@RequestMapping(value = "/account-setting.html", method = RequestMethod.GET)
 	public String accountSetting(Model model, HttpServletRequest request) {
 
-		EcLogger.getInstance().info(this.getClass(), " # accountSetting");
+		EcSiteLogger.getInstance().info(this.getClass(), " # accountSetting");
 
 		// sessionから顧客IDを取得
 		HttpSession session = request.getSession();
-		String seqCustomerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
+		String seqCustomerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
 		LoginUserDto loginUserDto = accountSearchService.findLoginUserByCustomerId(seqCustomerId);
@@ -79,11 +79,11 @@ public class AccountSettingController {
 	@RequestMapping(value = "/account-setting-input.html", method = RequestMethod.GET)
 	public String input(Model model, HttpServletRequest request) {
 
-		EcLogger.getInstance().info(this.getClass(), " # accountSettingInput");
+		EcSiteLogger.getInstance().info(this.getClass(), " # accountSettingInput");
 
 		// セッションから顧客IDを取得
 		HttpSession session = request.getSession();
-		String customerId = EcsiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
+		String customerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
 
 		// ログインユーザ情報を取得
 		LoginUserDto loginUserDto = accountSearchService.findLoginUserByCustomerId(customerId);
@@ -108,7 +108,7 @@ public class AccountSettingController {
 	@RequestMapping(value = "/account-setting-confirm.html", method = RequestMethod.POST)
 	public String confirm(Model model, HttpServletRequest request, AccountSettingForm form) {
 
-		EcLogger.getInstance().info(this.getClass(), " # accountsettingconfirm");
+		EcSiteLogger.getInstance().info(this.getClass(), " # accountsettingconfirm");
 
 		if (accountSettingService.invalidForm(form)) {
 			// 入力情報に不正がある

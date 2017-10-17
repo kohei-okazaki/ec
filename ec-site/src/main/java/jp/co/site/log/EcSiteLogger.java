@@ -4,16 +4,16 @@ import jp.co.common.log.BaseLogger;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class EcLogger extends BaseLogger {
+public class EcSiteLogger extends BaseLogger {
 
 	/** singleton */
-	private static EcLogger instance = new EcLogger();
+	private static EcSiteLogger instance = new EcSiteLogger();
 
 	/**
 	 * インスタンス取得<br>
 	 * @return instance
 	 */
-	public static EcLogger getInstance() {
+	public static EcSiteLogger getInstance() {
 		return instance;
 	}
 
