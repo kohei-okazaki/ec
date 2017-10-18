@@ -16,7 +16,6 @@ import jp.co.ec.site.web.session.EcSiteSessionKey;
 import jp.co.ec.site.web.session.EcSiteSessionManager;
 import jp.co.ec.site.web.view.View;
 
-
 /**
  * @author kou1210hei<br>
  * メニュー画面コントローラ<br>

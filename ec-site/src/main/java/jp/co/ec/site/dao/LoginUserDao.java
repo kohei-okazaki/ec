@@ -4,7 +4,6 @@ import java.util.List;
 
 import jp.co.ec.site.dto.LoginUserDto;
 
-
 /**
  * @author kou1210hei<br>
  * ログインユーザのdao<br>
