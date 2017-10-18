@@ -67,7 +67,7 @@
 
 	<filter>
 		<filter-name>EcSiteFilter</filter-name>
-		<filter-class>jp.co.site.web.filter.EcSiteFilter</filter-class>
+		<filter-class>jp.co.ec.site.web.filter.EcSiteFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>EcSiteFilter</filter-name>
