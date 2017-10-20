@@ -20,7 +20,6 @@ import jp.co.ec.site.service.FilePurchaseService;
 import jp.co.ec.site.web.view.PageView;
 import jp.co.ec.site.web.view.View;
 
-
 /**
  * @author kou1210hei<br>
  * ファイル一括購入コントローラ<br>
