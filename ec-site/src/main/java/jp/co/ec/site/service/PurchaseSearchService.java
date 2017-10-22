@@ -1,5 +1,6 @@
 package jp.co.ec.site.service;
 
+import java.text.ParseException;
 import java.util.List;
 
 import jp.co.ec.site.dto.PurchaseItemDto;
@@ -16,5 +17,5 @@ public interface PurchaseSearchService {
 	 * @param customerId
 	 * @return 商品購入情報のリスト
 	 */
-	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId);
+	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) throws ParseException;
 }
