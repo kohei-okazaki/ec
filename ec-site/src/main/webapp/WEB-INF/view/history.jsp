@@ -88,12 +88,14 @@
 			<th><c:out value="商品名" /></th>
 			<th><c:out value="購入数" /></th>
 			<th><c:out value="単価" /></th>
+			<th><c:out value="購入日" /></th>
 		</tr>
 	<c:forEach var="result" items="${resultList}">
 		<tr>
 			<td><c:out value="${result.itemName}" /></td>
 			<td><c:out value="${result.itemCount}" /></td>
 			<td><c:out value="${result.itemPrice}" /></td>
+			<td><c:out value="${result.buyDate}" /></td>
 		</tr>
 	</c:forEach>
 	</table>
