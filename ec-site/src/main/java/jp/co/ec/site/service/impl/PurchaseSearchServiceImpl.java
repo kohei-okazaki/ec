@@ -1,5 +1,6 @@
 package jp.co.ec.site.service.impl;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,10 @@ public class PurchaseSearchServiceImpl implements PurchaseSearchService {
 	 * 顧客IDに紐付く商品購入情報を検索する<br>
 	 * @param customerId
 	 * @return 商品購入情報のリスト
+	 * @throws ParseException
 	 */
 	@Override
-	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) {
+	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) throws ParseException {
 		return dao.findPurchaseEntityByCustomerId(customerId);
 	}
 

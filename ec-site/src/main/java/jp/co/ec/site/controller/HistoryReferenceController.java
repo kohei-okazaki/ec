@@ -1,5 +1,6 @@
 package jp.co.ec.site.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +50,12 @@ public class HistoryReferenceController {
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
 		String customerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-		List<PurchaseItemDto> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
+		List<PurchaseItemDto> resultList = null;
+		try {
+			resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 
 		model.addAttribute("resultList", resultList);
 
@@ -70,7 +76,12 @@ public class HistoryReferenceController {
 		// 顧客IDを取得
 		HttpSession session = request.getSession();
 		String customerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-		List<PurchaseItemDto> resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
+		List<PurchaseItemDto> resultList = null;
+		try {
+			resultList = purchaseSearchService.findPurchaseEntityByCustomerId(customerId);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 
 		return new ModelAndView(downloadService.execute(resultList));
 	}

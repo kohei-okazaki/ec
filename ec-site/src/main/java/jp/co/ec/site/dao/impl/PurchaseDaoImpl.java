@@ -1,10 +1,12 @@
 package jp.co.ec.site.dao.impl;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import jp.co.ec.common.util.DateUtil;
 import jp.co.ec.site.dao.PurchaseDao;
 import jp.co.ec.site.dto.PurchaseItemDto;
 import jp.co.ec.site.form.PurchaseForm;
@@ -16,9 +18,10 @@ public class PurchaseDaoImpl implements PurchaseDao {
 	 * 顧客IDに紐付く購入商品情報を検索
 	 * @param customerId
 	 * @return 購入商品情報
+	 * @throws ParseException
 	 */
 	@Override
-	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) {
+	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) throws ParseException {
 
 		List<PurchaseItemDto> resultList = new ArrayList<PurchaseItemDto>();
 		for (int i = 0; i < 20; i++) {
@@ -28,18 +31,22 @@ public class PurchaseDaoImpl implements PurchaseDao {
 				dto.setItemName("リンゴ");
 				dto.setItemPrice(200);
 				dto.setItemCount(3);
+				dto.setBuyDate(DateUtil.formatDate("20170904 12:56:43"));
 			} else if (i % 8 == 0) {
 				dto.setItemName("ミカン");
 				dto.setItemPrice(350);
 				dto.setItemCount(1);
+				dto.setBuyDate(DateUtil.formatDate("20170904 11:56:43"));
 			} else if (i % 5 == 0) {
 				dto.setItemName("ブドウ");
 				dto.setItemPrice(1000);
 				dto.setItemCount(3);
+				dto.setBuyDate(DateUtil.formatDate("20170806 12:56:43"));
 			} else {
 				dto.setItemName("メロン");
 				dto.setItemPrice(3000);
 				dto.setItemCount(1);
+				dto.setBuyDate(DateUtil.formatDate("20170903 12:56:43"));
 			}
 			resultList.add(dto);
 		}

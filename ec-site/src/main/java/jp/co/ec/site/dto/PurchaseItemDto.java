@@ -60,6 +60,11 @@ public class PurchaseItemDto implements Serializable {
 
 	@Setter
 	@Getter
+	@Column(name = "BUY_DATE")
+	private Date buyDate;
+
+	@Setter
+	@Getter
 	@Column(name = "REG_DATE")
 	private Date regDate;
 

@@ -1,6 +1,8 @@
 package jp.co.ec.common.util;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -12,6 +14,8 @@ import java.util.Locale;
  *
  */
 public class DateUtil {
+
+	public static String FORMAT_YYMMDDHHMISS = "yyyyMMdd HH:mm:ss";
 
 	/**
 	 * インスタンス生成を制限
@@ -59,6 +63,18 @@ public class DateUtil {
 	 */
 	public static LocalDateTime getConvertDate(Date targetDate) {
 		return LocalDateTime.ofInstant(targetDate.toInstant(), ZoneId.systemDefault());
+	}
+
+	/**
+	 * 文字列型の日付をDate型に変換する。<br>
+	 * 変換する日付のフォーマットは"yyyyMMdd HH:mm:ss"とする<br>
+	 * @param targetStrDate
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date formatDate(String targetStrDate) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat(FORMAT_YYMMDDHHMISS);
+		return sdf.parse(targetStrDate);
 	}
 
 }
