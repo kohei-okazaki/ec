@@ -44,7 +44,7 @@ public class ExcelUtil {
 	}
 
 	/**
-	 * 指定されたクラスつけたExcelアノテーションを返す<br>
+	 * 指定されたクラスにつけたExcelアノテーションを返す<br>
 	 * @param clazz
 	 * @return
 	 */
