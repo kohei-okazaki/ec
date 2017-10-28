@@ -53,20 +53,11 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 		String fileName = new String("sample.xls".getBytes(Charset.MS_932.getName()), "ISO-8859-1");
 		response.setHeader("Content-Desposition", "attachment; filename=" + fileName);
 
-		Cell cell = null;
-
 		Sheet sheet = workbook.createSheet(ExcelUtil.getSheetName(this.getClass()));
-		setHeader(sheet, cell);
 
-		// 購入商品情報を1レコードずつ設定する
-		for (int i = 0; i < purchaseList.size(); i++) {
-			cell = ExcelUtil.getCell(sheet, i + 1, 0);
-			ExcelUtil.setText(cell, purchaseList.get(i).getItemName());
-			cell = ExcelUtil.getCell(sheet, i + 1, 1);
-			ExcelUtil.setText(cell, purchaseList.get(i).getItemCount().toString());
-			cell = ExcelUtil.getCell(sheet, i + 1, 2);
-			ExcelUtil.setText(cell, purchaseList.get(i).getItemPrice().toString());
-		}
+		setHeader(sheet);
+
+		setData(sheet);
 	}
 
 	/**
@@ -75,12 +66,30 @@ public class HistoryExcelBuilder extends BaseExcelBuilder {
 	 * @param cell
 	 */
 	@Override
-	protected void setHeader(Sheet sheet, Cell cell) {
+	protected void setHeader(Sheet sheet) {
 		List<String> headerNameList = ExcelUtil.getHeaderList(this.getClass());
 		for (int i = 0; i < headerNameList.size(); i++) {
 			String cellName = headerNameList.get(i);
-			cell = ExcelUtil.getCell(sheet, 0, i);
+			Cell cell = ExcelUtil.getCell(sheet, 0, i);
 			ExcelUtil.setText(cell, cellName);
+		}
+	}
+
+	/**
+	 * データを設定する<br>
+	 * @param sheet
+	 */
+	@Override
+	protected void setData(Sheet sheet) {
+
+		// 購入商品情報を1レコードずつ設定する
+		for (int i = 0; i < purchaseList.size(); i++) {
+			Cell cell = ExcelUtil.getCell(sheet, i + 1, 0);
+			ExcelUtil.setText(cell, purchaseList.get(i).getItemName());
+			cell = ExcelUtil.getCell(sheet, i + 1, 1);
+			ExcelUtil.setText(cell, purchaseList.get(i).getItemCount().toString());
+			cell = ExcelUtil.getCell(sheet, i + 1, 2);
+			ExcelUtil.setText(cell, purchaseList.get(i).getItemPrice().toString());
 		}
 	}
 
