@@ -41,8 +41,6 @@
 					<ul>
 						<li><a href="#">孫メニュー1</a></li>
 						<li><a href="#">孫メニュー2</a></li>
-						<li><a href="#">孫メニュー3</a></li>
-						<li><a href="#">孫メニュー4</a></li>
 					</ul>
 				</li>
 				<li><a href="#">子メニュー3</a>
@@ -54,7 +52,6 @@
 								<li><a href="#">ひ孫メニュー1</a></li>
 								<li><a href="#">ひ孫メニュー2</a></li>
 								<li><a href="#">ひ孫メニュー3</a></li>
-								<li><a href="#">ひ孫メニュー4</a></li>
 							</ul></li>
 						<li><a href="#">孫メニュー4</a></li>
 					</ul>
@@ -63,8 +60,6 @@
 					<ul>
 						<li><a href="#">孫メニュー1</a></li>
 						<li><a href="#">孫メニュー2</a></li>
-						<li><a href="#">孫メニュー3</a></li>
-						<li><a href="#">孫メニュー4</a></li>
 					</ul>
 				</li>
 				<li><a href="/ec-site/menu.html">TOP</a></li>
@@ -82,23 +77,26 @@
 <div id="history">
 	<form action="/ec-site/history-download.html" method="get">
 		<input type="submit" value="Excel出力" />
+
+		<table border="1">
+			<tr>
+				<th><c:out value="商品名" /></th>
+				<th><c:out value="購入数" /></th>
+				<th><c:out value="単価" /></th>
+				<th><c:out value="購入日" /></th>
+			</tr>
+		<c:forEach var="result" items="${resultList}">
+			<tr>
+				<td><c:out value="${result.itemName}" /></td>
+				<td><c:out value="${result.itemCount}" /></td>
+				<td><c:out value="${result.itemPrice}" /></td>
+				<td><c:out value="${result.buyDate}" /></td>
+			</tr>
+		</c:forEach>
+		</table>
+
+		<input type="submit" value="Excel出力" />
 	</form>
-	<table border="1">
-		<tr>
-			<th><c:out value="商品名" /></th>
-			<th><c:out value="購入数" /></th>
-			<th><c:out value="単価" /></th>
-			<th><c:out value="購入日" /></th>
-		</tr>
-	<c:forEach var="result" items="${resultList}">
-		<tr>
-			<td><c:out value="${result.itemName}" /></td>
-			<td><c:out value="${result.itemCount}" /></td>
-			<td><c:out value="${result.itemPrice}" /></td>
-			<td><c:out value="${result.buyDate}" /></td>
-		</tr>
-	</c:forEach>
-	</table>
 </div>
 
 </body>
