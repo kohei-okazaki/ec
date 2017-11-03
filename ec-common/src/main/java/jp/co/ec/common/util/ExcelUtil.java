@@ -9,7 +9,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-import jp.co.ec.common.other.Excel;
+import jp.co.ec.common.excel.Excel;
 
 
 /**
