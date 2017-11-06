@@ -45,6 +45,11 @@ public class DeliveryInfoDto implements Serializable {
 
 	@Setter
 	@Getter
+	@Column(name = "UPDATE_DATE")
+	private Date updateDate;
+
+	@Setter
+	@Getter
 	@Column(name = "REG_DATE")
 	private Date regDate;
 
