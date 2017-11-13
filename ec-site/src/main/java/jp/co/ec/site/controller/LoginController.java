@@ -5,8 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.ec.site.log.EcSiteLogger;
 import jp.co.ec.site.web.session.EcSiteSessionKey;
@@ -19,6 +19,7 @@ import jp.co.ec.site.web.view.View;
  *
  */
 @Controller
+@RequestMapping(value = "/login.html")
 public class LoginController {
 
 	/**
@@ -28,7 +29,7 @@ public class LoginController {
 	 * @param reques
 	 * @return ログイン画面
 	 */
-	@RequestMapping(value = "/login.html", method = RequestMethod.GET)
+	@GetMapping
 	public String login(Model model, HttpServletRequest request) {
 
 		EcSiteLogger.getInstance().info(this.getClass(), " # login");

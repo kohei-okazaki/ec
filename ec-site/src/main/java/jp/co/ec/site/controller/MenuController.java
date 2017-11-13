@@ -6,8 +6,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import jp.co.ec.site.form.LoginForm;
 import jp.co.ec.site.log.EcSiteLogger;
@@ -22,6 +23,7 @@ import jp.co.ec.site.web.view.View;
  *
  */
 @Controller
+@RequestMapping("/menu.html")
 public class MenuController {
 
 	/** ログイン画面サービス */
@@ -36,7 +38,7 @@ public class MenuController {
 	 * @param request
 	 * @return メニュー画面
 	 */
-	@RequestMapping(value = "/menu.html", method = RequestMethod.POST)
+	@PostMapping
 	public String menu(LoginForm form, Model model, HttpServletRequest request) {
 
 		EcSiteLogger.getInstance().info(this.getClass(), " # menu");
@@ -59,7 +61,7 @@ public class MenuController {
 	 * @param request
 	 * @return メニュー画面
 	 */
-	@RequestMapping(value = "/menu.html", method = RequestMethod.GET)
+	@GetMapping
 	public String menu(Model model, HttpServletRequest request) {
 
 		EcSiteLogger.getInstance().info(this.getClass(), " # menu");
