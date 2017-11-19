@@ -26,6 +26,8 @@
 		<junit.version>4.12</junit.version>
 		<!-- poi -->
 		<org.apache.poi-version>3.17</org.apache.poi-version>
+		<!-- lombok -->
+		<lombok-version>1.16.18</lombok-version>
 	</properties>
 
 	<dependencies>
@@ -42,7 +44,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.18</version>
+			<version>${lombok-version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- poi -->
@@ -91,7 +93,7 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.11</version>
+			<version>1.2.3</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -122,7 +124,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>3.3.9</version>
+				<version>3.5.2</version>
 				<configuration>
 					<additionalProjectnatures>
 						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
