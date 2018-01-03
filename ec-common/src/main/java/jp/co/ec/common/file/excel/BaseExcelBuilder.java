@@ -1,4 +1,4 @@
-package jp.co.ec.common.excel;
+package jp.co.ec.common.file.excel;
 
 import java.util.Map;
 
