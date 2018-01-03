@@ -1,4 +1,4 @@
-package jp.co.site.login;
+package jp.co.ec.site.login;
 
 import static org.junit.Assert.*;
 
