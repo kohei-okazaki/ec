@@ -86,8 +86,4 @@ public class HistoryReferenceController {
 		return new ModelAndView(downloadService.execute(resultList));
 	}
 
-
-
-
-
 }
