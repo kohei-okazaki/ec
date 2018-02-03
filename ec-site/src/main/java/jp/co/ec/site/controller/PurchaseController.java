@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.ec.common.dto.PurchaseItemDto;
 import jp.co.ec.site.form.PurchaseForm;
 import jp.co.ec.site.log.EcSiteLogger;
 import jp.co.ec.site.service.PurchaseService;
@@ -78,8 +79,14 @@ public class PurchaseController {
 
 		EcSiteLogger.getInstance().info(this.getClass(), " # complete");
 
+		PurchaseItemDto dto = new PurchaseItemDto();
+		dto.setItemName(form.getItemName());
+		dto.setItemPrice(form.getItemPrice());
+		dto.setItemCount(form.getItemCount());
+		dto.setPaymentMethod(form.getPaymentMethod());
+		dto.setPaymentCount(form.getPaymentCount());
 		// 購入商品情報を登録する
-		purchaseService.registPurchaseItem(form);
+		purchaseService.registPurchaseItem(dto);
 
 		model.addAttribute("itemName", form.getItemName());
 		model.addAttribute("itemCount", form.getItemCount());

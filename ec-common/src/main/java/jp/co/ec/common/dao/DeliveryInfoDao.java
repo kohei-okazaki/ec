@@ -14,18 +14,18 @@ public interface DeliveryInfoDao {
 	 * @param customerId
 	 * @return 配送先情報
 	 */
-	public DeliveryInfoDto createDeliveryInfo(String customerId);
+	void createDeliveryInfo(DeliveryInfoDto dto);
 
 	/**
 	 * 配送先情報を更新する<br>
 	 * @param dto
 	 */
-	public void updateDeliveryInfo(DeliveryInfoDto dto);
+	void updateDeliveryInfo(DeliveryInfoDto dto);
 
 	/**
 	 * 顧客IDに紐づく配送先情報を取得<br>
 	 * @param customerId
 	 * @return 配送先情報
 	 */
-	public DeliveryInfoDto getDeliveryInfoByCustomerId(String customerId);
+	DeliveryInfoDto findDeliveryInfoByCustomerId(String customerId);
 }

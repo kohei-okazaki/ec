@@ -34,7 +34,7 @@ public class LoginServiceImpl implements LoginService {
 			return true;
 		}
 
-		String dbPassword = accountsearchService.findLoginUserByCustomerId(form.getCustomerId()).getPassword();
+		String dbPassword = this.accountsearchService.findLoginUserByCustomerId(form.getCustomerId()).getPassword();
 		String inputPassword = form.getPassword();
 		return !dbPassword.equals(inputPassword);
 	}
@@ -48,7 +48,7 @@ public class LoginServiceImpl implements LoginService {
 	public boolean sessionCheck(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String sessionCustomerId = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.SEQ_CUSTOMER_ID);
-		String dbPassword = accountsearchService.findLoginUserByCustomerId(sessionCustomerId).getPassword();
+		String dbPassword = this.accountsearchService.findLoginUserByCustomerId(sessionCustomerId).getPassword();
 		String sessionPassword = EcSiteSessionManager.getInstance().getAttribute(session, EcSiteSessionKey.PASSWORD);
 		return !dbPassword.equals(sessionPassword);
 	}

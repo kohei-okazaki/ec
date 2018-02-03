@@ -1,5 +1,6 @@
 package jp.co.ec.site.service;
 
+import jp.co.ec.common.dto.PurchaseItemDto;
 import jp.co.ec.site.form.PurchaseForm;
 
 /**
@@ -18,9 +19,9 @@ public interface PurchaseService {
 
 	/**
 	 * 商品購入処理を行う。<br>
-	 * @param form
+	 * @param dto
 	 */
-	public void registPurchaseItem(PurchaseForm form);
+	public void registPurchaseItem(PurchaseItemDto dto);
 
 
 }

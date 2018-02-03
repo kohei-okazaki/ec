@@ -3,8 +3,8 @@ package jp.co.ec.site.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.co.ec.site.dao.LoginUserDao;
-import jp.co.ec.site.dto.LoginUserDto;
+import jp.co.ec.common.dao.LoginUserDao;
+import jp.co.ec.common.dto.LoginUserDto;
 import jp.co.ec.site.service.AccountSearchService;
 
 @Service
@@ -21,7 +21,7 @@ public class AccountSearchServiceImpl implements AccountSearchService {
 	 */
 	@Override
 	public LoginUserDto findLoginUserByCustomerId(String customerId) {
-		return dao.getLoginUserByCustomerId(customerId);
+		return this.dao.findLoginUserByCustomerId(customerId);
 	}
 
 }

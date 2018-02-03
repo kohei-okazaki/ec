@@ -21,7 +21,7 @@
 
 
 		<!-- Spring -->
-		<spring-framework.version>5.0.2.RELEASE</spring-framework.version>
+		<spring-framework.version>5.0.3.RELEASE</spring-framework.version>
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
 		<!-- Test -->
@@ -29,7 +29,7 @@
 		<!-- poi -->
 		<org.apache.poi-version>3.17</org.apache.poi-version>
 		<!-- lombok -->
-		<lombok-version>1.16.18</lombok-version>
+		<lombok-version>1.16.20</lombok-version>
 	</properties>
 
 	<dependencies>

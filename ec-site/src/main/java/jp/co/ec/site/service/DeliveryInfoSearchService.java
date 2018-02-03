@@ -1,6 +1,6 @@
 package jp.co.ec.site.service;
 
-import jp.co.ec.site.dto.DeliveryInfoDto;
+import jp.co.ec.common.dto.DeliveryInfoDto;
 
 /**
  * @author kou1210hei<br>

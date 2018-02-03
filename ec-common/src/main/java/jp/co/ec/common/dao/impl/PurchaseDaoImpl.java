@@ -10,14 +10,16 @@ import jp.co.ec.common.dao.PurchaseDao;
 import jp.co.ec.common.dto.PurchaseItemDto;
 import jp.co.ec.common.util.DateUtil;
 
+/**
+ * @author kou1210hei<br>
+ * 購入情報Dao実装クラス<br>
+ *
+ */
 @Repository
 public class PurchaseDaoImpl implements PurchaseDao {
 
 	/**
-	 * 顧客IDに紐付く購入商品情報を検索
-	 * @param customerId
-	 * @return 購入商品情報
-	 * @throws ParseException
+	 * {@inheritDoc}
 	 */
 	@Override
 	public List<PurchaseItemDto> findPurchaseEntityByCustomerId(String customerId) throws ParseException {
@@ -53,12 +55,11 @@ public class PurchaseDaoImpl implements PurchaseDao {
 	}
 
 	/**
-	 * 購入商品情報を登録する<br>
-	 * @param form
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void insertPurchaseInfo(PurchaseItemDto dto) {
-		// TODO 登録処理を実装
+		// FIXME 登録処理を実装
 	}
 
 }

@@ -4,8 +4,7 @@ import java.util.List;
 
 import org.springframework.web.servlet.View;
 
-import jp.co.ec.site.dto.PurchaseItemDto;
-
+import jp.co.ec.common.dto.PurchaseItemDto;
 
 /**
  * @author kou1210hei<br>

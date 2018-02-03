@@ -9,38 +9,36 @@ import org.springframework.stereotype.Repository;
 import jp.co.ec.common.dao.LoginUserDao;
 import jp.co.ec.common.dto.LoginUserDto;
 
+/**
+ * @author kou1210hei<br>
+ * ログインユーザDao実装クラス<br>
+ *
+ */
 @Repository
 public class LoginUserDaoImpl implements LoginUserDao {
 
 	/**
-	 * 指定されたパスワードからログインユーザ作成する<br>
-	 * @param password
-	 * @return ログインユーザ情報
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LoginUserDto createLoginUser(String password) {
-		LoginUserDto dto = new LoginUserDto();
-		dto.setSeqCustomerId("master");
-		dto.setPassword(password);
-		dto.setRegDate(new Date());
-		return dto;
+	public void createLoginUser(LoginUserDto dto) {
+		// FIXME
 	}
 
 	/**
-	 * ログインユーザを更新する<br>
-	 * @param dto
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void updateLoginUser(LoginUserDto dto) {
-		// TODO 更新処理を追加
+		// FIXME
 	}
 
 	/**
-	 * ログインユーザを全部検索する<br>
-	 * @return 検索結果
+	 * {@inheritDoc}
 	 */
 	@Override
-	public List<LoginUserDto> getAllDate() {
+	public List<LoginUserDto> findLoginUser() {
+		// FIXME
 		List<LoginUserDto> resultList = new ArrayList<LoginUserDto>();
 		for (int i = 0; i < 15; i++) {
 			LoginUserDto dto = new LoginUserDto();
@@ -63,12 +61,10 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	}
 
 	/**
-	 * 顧客IDからログインユーザを検索する<br>
-	 * @param customerId
-	 * @return ログインユーザ情報
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LoginUserDto getLoginUserByCustomerId(String customerId) {
+	public LoginUserDto findLoginUserByCustomerId(String customerId) {
 		// FIXME
 		LoginUserDto dto = new LoginUserDto();
 		dto.setSeqCustomerId(customerId);

@@ -11,37 +11,26 @@ import jp.co.ec.common.dto.DeliveryInfoDto;
 public class DeliveryInfoDaoImpl implements DeliveryInfoDao {
 
 	/**
-	 * 配送先情報を作成<br>
-	 * @param customerId
-	 * @return 配送先情報
+	 * {@inheritDoc}
 	 */
 	@Override
-	public DeliveryInfoDto createDeliveryInfo(String customerId) {
-		DeliveryInfoDto dto = new DeliveryInfoDto();
-		dto.setSeqCustomerId(customerId);
-		dto.setPrefectures("東京都");
-		dto.setCity("渋谷区");
-		dto.setAddress("渋谷");
-		dto.setRegDate(new Date());
-		return dto;
+	public void createDeliveryInfo(DeliveryInfoDto dto) {
+		// FIXME
 	}
 
 	/**
-	 * 配送先情報を更新する<br>
-	 * @param dto
+	 * {@inheritDoc}
 	 */
 	@Override
 	public void updateDeliveryInfo(DeliveryInfoDto dto) {
-
+		// FIXME
 	}
 
 	/**
-	 * 顧客IDに紐づく配送先情報を取得<br>
-	 * @param customerId
-	 * @return 配送先情報
+	 * {@inheritDoc}
 	 */
 	@Override
-	public DeliveryInfoDto getDeliveryInfoByCustomerId(String customerId) {
+	public DeliveryInfoDto findDeliveryInfoByCustomerId(String customerId) {
 		// FIXME
 		DeliveryInfoDto dto = new DeliveryInfoDto();
 		dto.setSeqCustomerId(customerId);

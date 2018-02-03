@@ -3,8 +3,9 @@ package jp.co.ec.site.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jp.co.ec.common.dao.PurchaseDao;
+import jp.co.ec.common.dto.PurchaseItemDto;
 import jp.co.ec.common.util.StringUtil;
-import jp.co.ec.site.dao.PurchaseDao;
 import jp.co.ec.site.form.PurchaseForm;
 import jp.co.ec.site.service.PurchaseService;
 
@@ -36,8 +37,8 @@ public class PurchaseServiceImpl implements PurchaseService {
 	 * @param form
 	 */
 	@Override
-	public void registPurchaseItem(PurchaseForm form) {
-		purchaseDao.insertPurchaseInfo(form);
+	public void registPurchaseItem(PurchaseItemDto dto) {
+		purchaseDao.insertPurchaseInfo(dto);
 	}
 
 }
