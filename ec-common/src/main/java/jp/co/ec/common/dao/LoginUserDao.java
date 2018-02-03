@@ -13,10 +13,10 @@ public interface LoginUserDao {
 
 	/**
 	 * 指定されたパスワードからログインユーザ作成する<br>
-	 * @param password
+	 * @param dto
 	 * @return ログインユーザ情報
 	 */
-	void createLoginUser(String password);
+	void createLoginUser(LoginUserDto dto);
 
 	/**
 	 * ログインユーザを更新する<br>

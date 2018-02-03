@@ -1,5 +1,7 @@
 package jp.co.ec.site.service.impl;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,7 +36,7 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 	 */
 	@Override
 	public void createLoginUser(LoginUserDto dto) {
-		this.dao.createLoginUser(dto.getPassword());
+		this.dao.createLoginUser(dto);
 	}
 
 	/**
@@ -42,8 +44,12 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 	 */
 	@Override
 	public LoginUserDto toLoginUserDto(AccountCreateForm form) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+
+		LoginUserDto dto = new LoginUserDto();
+		dto.setPassword(form.getPassword());
+		dto.setRegDate(new Date());
+
+		return dto;
 	}
 
 }

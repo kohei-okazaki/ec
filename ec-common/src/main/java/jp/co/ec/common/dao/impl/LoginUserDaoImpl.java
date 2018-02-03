@@ -21,7 +21,7 @@ public class LoginUserDaoImpl implements LoginUserDao {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void createLoginUser(String password) {
+	public void createLoginUser(LoginUserDto dto) {
 		// FIXME
 	}
 
