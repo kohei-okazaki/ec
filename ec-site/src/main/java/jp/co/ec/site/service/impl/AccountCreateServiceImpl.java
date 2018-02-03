@@ -3,9 +3,9 @@ package jp.co.ec.site.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import jp.co.ec.common.dao.LoginUserDao;
+import jp.co.ec.common.dto.LoginUserDto;
 import jp.co.ec.common.util.StringUtil;
-import jp.co.ec.site.dao.LoginUserDao;
-import jp.co.ec.site.dto.LoginUserDto;
 import jp.co.ec.site.form.AccountCreateForm;
 import jp.co.ec.site.service.AccountCreateService;
 
@@ -17,10 +17,7 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 	private LoginUserDao dao;
 
 	/**
-	 * パスワードのチェックを行う<br>
-	 * 無効なログイン情報の場合true, 正常なログイン情報の場合falseを返す<br>
-	 * @param form
-	 * @return 判定結果を返す
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean invalidPassword(AccountCreateForm form) {
@@ -33,13 +30,20 @@ public class AccountCreateServiceImpl implements AccountCreateService {
 	}
 
 	/**
-	 * ログインユーザを作成する<br>
-	 * @param form
-	 * @return LoginUserEntity
+	 * {@inheritDoc}
 	 */
 	@Override
-	public LoginUserDto createLoginUser(AccountCreateForm form) {
-		return dao.createLoginUser(form.getPassword());
+	public void createLoginUser(LoginUserDto dto) {
+		this.dao.createLoginUser(dto.getPassword());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public LoginUserDto toLoginUserDto(AccountCreateForm form) {
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
 
 }

@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import jp.co.ec.site.form.LoginForm;
 
-
 /**
  * @author kou1210hei<br>
  * ログインIF<br>

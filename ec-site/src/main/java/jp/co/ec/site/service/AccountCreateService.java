@@ -1,6 +1,6 @@
 package jp.co.ec.site.service;
 
-import jp.co.ec.site.dto.LoginUserDto;
+import jp.co.ec.common.dto.LoginUserDto;
 import jp.co.ec.site.form.AccountCreateForm;
 
 /**
@@ -13,7 +13,7 @@ public interface AccountCreateService {
 	/**
 	 * パスワードのチェックを行う<br>
 	 * @param form
-	 * @return 判定結果Ｓ
+	 * @return 判定結果
 	 */
 	public boolean invalidPassword(AccountCreateForm form);
 
@@ -22,5 +22,12 @@ public interface AccountCreateService {
 	 * @param form
 	 * @return LoginUserEntity
 	 */
-	public LoginUserDto createLoginUser(AccountCreateForm form);
+	public void createLoginUser(LoginUserDto dto);
+
+	/**
+	 * Dto型に変換する<br>
+	 * @param form
+	 * @return
+	 */
+	public LoginUserDto toLoginUserDto(AccountCreateForm form);
 }

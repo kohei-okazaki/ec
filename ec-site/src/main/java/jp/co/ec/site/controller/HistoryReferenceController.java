@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.co.ec.site.dto.PurchaseItemDto;
+import jp.co.ec.common.dto.PurchaseItemDto;
 import jp.co.ec.site.log.EcSiteLogger;
 import jp.co.ec.site.service.FileDownloadService;
 import jp.co.ec.site.service.PurchaseSearchService;

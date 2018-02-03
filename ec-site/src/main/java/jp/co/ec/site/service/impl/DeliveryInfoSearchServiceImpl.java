@@ -3,8 +3,8 @@ package jp.co.ec.site.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.co.ec.site.dao.DeliveryInfoDao;
-import jp.co.ec.site.dto.DeliveryInfoDto;
+import jp.co.ec.common.dao.DeliveryInfoDao;
+import jp.co.ec.common.dto.DeliveryInfoDto;
 import jp.co.ec.site.service.DeliveryInfoSearchService;
 
 @Service
@@ -21,7 +21,7 @@ public class DeliveryInfoSearchServiceImpl implements DeliveryInfoSearchService 
 	 */
 	@Override
 	public DeliveryInfoDto findDeliveryInfoByCustomerId(String customerId) {
-		return deliveryInfoDao.getDeliveryInfoByCustomerId(customerId);
+		return this.deliveryInfoDao.findDeliveryInfoByCustomerId(customerId);
 	}
 
 }

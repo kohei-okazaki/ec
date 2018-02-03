@@ -28,6 +28,7 @@
 	</beans:bean>
 
 	<!-- conportnentScan -->
+	<context:component-scan base-package="jp.co.ec.site.config" />
 	<context:component-scan base-package="jp.co.ec.site.controller" />
 	<context:component-scan base-package="jp.co.ec.site.dao.impl" />
 	<context:component-scan base-package="jp.co.ec.site.service.impl" />

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.View;
 
-import jp.co.ec.site.dto.PurchaseItemDto;
+import jp.co.ec.common.dto.PurchaseItemDto;
 import jp.co.ec.site.excel.HistoryExcelBuilder;
 import jp.co.ec.site.service.FileDownloadService;
 

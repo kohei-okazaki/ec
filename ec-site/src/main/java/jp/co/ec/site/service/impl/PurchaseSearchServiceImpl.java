@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.co.ec.site.dao.PurchaseDao;
-import jp.co.ec.site.dto.PurchaseItemDto;
+import jp.co.ec.common.dao.PurchaseDao;
+import jp.co.ec.common.dto.PurchaseItemDto;
 import jp.co.ec.site.service.PurchaseSearchService;
 
 @Service

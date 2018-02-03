@@ -16,25 +16,25 @@ public interface LoginUserDao {
 	 * @param password
 	 * @return ログインユーザ情報
 	 */
-	public LoginUserDto createLoginUser(String password);
+	void createLoginUser(String password);
 
 	/**
 	 * ログインユーザを更新する<br>
 	 * @param dto
 	 */
-	public void updateLoginUser(LoginUserDto dto);
+	void updateLoginUser(LoginUserDto dto);
 
 	/**
 	 * ログインユーザを全部検索する<br>
 	 * @return ログインユーザ情報
 	 */
-	public List<LoginUserDto> getAllDate();
+	List<LoginUserDto> findLoginUser();
 
 	/**
 	 * 顧客IDからログインユーザを検索する<br>
 	 * @param customerId
 	 * @return ログインユーザ情報
 	 */
-	public LoginUserDto getLoginUserByCustomerId(String customerId);
+	LoginUserDto findLoginUserByCustomerId(String customerId);
 
 }

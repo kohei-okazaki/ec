@@ -3,7 +3,7 @@ package jp.co.ec.site.service;
 import java.text.ParseException;
 import java.util.List;
 
-import jp.co.ec.site.dto.PurchaseItemDto;
+import jp.co.ec.common.dto.PurchaseItemDto;
 
 /**
  * @author kou1210hei<br>
